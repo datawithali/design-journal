@@ -56,21 +56,38 @@
             font-style: italic;
         }
 
-/* Standalone Abstract Section */
+        /* Project Abstract Section */
+        .project-abstract {
+            background: linear-gradient(135deg, #133c3b 0%, #0d2726 100%);
+            padding: 3rem 2rem;
+            margin-bottom: 0;
+        }
 
-</header>
+        .abstract-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            border-left: 6px solid var(--color-teal-500);
+        }
 
-<!-- COMPLETE PROJECT ABSTRACT - PASTE HERE -->
-<section id="abstract" class="standalone-abstract">
-    <div class="container">
-        <div class="abstract-card prominent">
-            <h2 style="font-size: 2.5rem; color: var(--color-teal-600); margin-bottom: 1.5rem;">🎯 Project Abstract</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-slate-900);">
-                <strong>Learn The Money:</strong> A human-centered financial literacy curriculum designed through design thinking methodology for teacher candidates and underserved populations. By applying <em>Creative Confidence</em> principles, this project transforms financial education from rote knowledge transmission to confidence-building, context-aware learning experiences that address real learner needs—money trauma, decision paralysis, and systemic barriers. 
-                <strong>The goal:</strong> equip educators with tools to foster financial self-efficacy in their students and communities.
-            </p>
-            <div style="margin-top
+        .abstract-box h2 {
+            color: var(--color-teal-600);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
+        .abstract-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-slate-900);
+            margin-bottom: 1rem;
+        }
 
         /* Navigation */
         nav {
@@ -314,6 +331,14 @@
             .entry-body {
                 padding: 1rem;
             }
+
+            .project-abstract {
+                padding: 2rem 1rem;
+            }
+
+            .abstract-box {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -324,6 +349,15 @@
         <p>Financial Literacy & Creative Confidence</p>
         <p class="header-subtitle">Integrating Design Thinking with the Learn The Money Initiative</p>
     </header>
+
+    <!-- Project Abstract -->
+    <section class="project-abstract">
+        <div class="abstract-box">
+            <h2>🎯 Project Abstract</h2>
+            <p><strong>Learn The Money:</strong> A human-centered financial literacy curriculum designed through design thinking methodology for teacher candidates and underserved populations. By applying <em>Creative Confidence</em> principles, this project transforms financial education from rote knowledge transmission to confidence-building, context-aware learning experiences that address real learner needs—money trauma, decision paralysis, and systemic barriers.</p>
+            <p><strong>The goal:</strong> Equip educators with tools to foster financial self-efficacy in their students and communities through a 10-week design journey documented in this journal.</p>
+        </div>
+    </section>
 
     <!-- Navigation -->
     <nav>
@@ -354,24 +388,19 @@
             <h2 style="color: var(--color-slate-900); margin-bottom: 2rem; font-size: 2rem;">Journal Entries</h2>
             
             <div class="entries-container">
-                <!-- Entry 1: FLIP - Design Thinking -->
+                <!-- Entry 1 -->
                 <article class="entry-card status-published">
                     <div class="entry-header">
                         <span class="entry-number">ENTRY 1</span>
                         <h3>FLIP: From Design Thinking to Creative Confidence</h3>
-                        <div class="entry-date">Week 1: [Your Date]</div>
+                        <div class="entry-date">Week 1: January 26, 2026</div>
                     </div>
                     <div class="entry-body">
                         <p><strong>Reading Focus:</strong> Chapter 1 – "FLIP: From Design Thinking to Creative Confidence"</p>
-
                         <p><strong>Key Concepts Learned:</strong> The Kelley brothers' "FLIP" concept – a transformation from one state of mind to another. This chapter introduces the three-circle framework of design thinking: <em>Feasibility (technical), Viability (business), and Desirability (human-centered)</em>. The Doug Dietz case study demonstrates how human-centered design can radically improve outcomes – transforming an MRI scanner experience for pediatric patients.</p>
-
                         <p><strong>Application to Learn The Money:</strong> I'm recognizing that financial literacy education has often emphasized feasibility and viability (teaching mechanics of budgeting) but has frequently overlooked desirability – the human needs, motivations, and emotional barriers of learners. How might I "flip" my approach to prioritize understanding the fears and aspirations of teacher candidates and incarcerated women before designing curriculum?</p>
-
                         <p><strong>Reflection:</strong> The growth mindset concept (Dweck) resonates deeply with my work. Many of my target learners have been told they're "not good with money" – a fixed mindset belief. Creative confidence asks us to see this as a learnable skill. My project must help learners experience early wins to shift this belief.</p>
-
                         <p><strong>Next Steps:</strong> This week, I'll conduct brief empathy interviews with 3-5 teacher candidates to understand their beliefs, fears, and perceptions around financial literacy teaching. I'll use this to reframe my curriculum design challenge.</p>
-
                         <div class="entry-metadata">
                             <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 1</div>
                             <div class="metadata-item">⏱️ Read time: ~5 min</div>
@@ -379,63 +408,49 @@
                     </div>
                 </article>
 
-                <!-- Entry 2: PLACEHOLDER -->
+                <!-- Entry 2 -->
                 <article class="entry-card status-published">
-    <div class="entry-header">
-        <span class="entry-number">ENTRY 2</span>
-        <h3>DARE: From Fear to Courage</h3>
-        <div class="entry-date">Week 2: February 2, 2026</div>
-    </div>
-    <div class="entry-body">
-        <p><strong>Reading Focus:</strong> Chapter 2 – "DARE: From Fear to Courage" in <em>Creative Confidence</em> by Kelley & Kelley.</p>
-
-        <p><strong>Key Concepts Learned:</strong> This chapter reframed fear of failure as a normal part of creative work and highlighted Bandura’s idea of guided mastery—building confidence through a series of small, successful steps rather than one big leap. I was struck by the idea that creative people don’t fail less; they simply run more experiments and learn faster from each one.</p>
-
-        <p><strong>Application to Learn The Money:</strong> Many learners in my financial literacy programs carry “money trauma” and are afraid of making mistakes in front of others, especially when talking about debt or past decisions. For Learn The Money, I want to design low‑stakes practice: tiny financial experiments (like building a one‑week spending log or automating a $5 transfer) that let participants experience quick wins and see themselves as capable financial decision‑makers.</p>
-
-        <p><strong>Independent Connections:</strong> The chapter’s focus on self‑efficacy connects to Bandura’s work and to growth mindset research by Dweck, both of which emphasize that beliefs about one’s ability strongly shape persistence and outcomes in learning. In a financial literacy context, this means I need to design activities that explicitly surface and challenge “I’m just bad with money” narratives.</p>
-
-        <p><strong>Personal Reflection:</strong> I noticed how often I still delay creative work (like curriculum prototyping) because I want it to be polished before sharing. This chapter nudged me to see my own perfectionism as a fear pattern, not a personality trait, and to treat each module of the Learn The Money curriculum as a prototype rather than a final product.</p>
-
-        <p><strong>Next Steps:</strong> For the next module, I will prototype one “safe‑to‑fail” activity where teacher candidates design a short money‑conversation role‑play, test it with a peer, and debrief what felt uncomfortable or empowering. I will also add a short reflection question asking them to name one money‑related risk they are now willing to take in their teaching or personal life.</p>
-
-        <div class="entry-metadata">
-            <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 2; Bandura (1997); Dweck (2006)</div>
-            <div class="metadata-item">⏱️ Read time: ~5 min</div>
-        </div>
-    </div>
-</article>
-
+                    <div class="entry-header">
+                        <span class="entry-number">ENTRY 2</span>
+                        <h3>DARE: From Fear to Courage</h3>
+                        <div class="entry-date">Week 2: February 2, 2026</div>
+                    </div>
+                    <div class="entry-body">
+                        <p><strong>Reading Focus:</strong> Chapter 2 – "DARE: From Fear to Courage" in <em>Creative Confidence</em> by Kelley & Kelley.</p>
+                        <p><strong>Key Concepts Learned:</strong> This chapter reframed fear of failure as a normal part of creative work and highlighted Bandura's idea of guided mastery—building confidence through a series of small, successful steps rather than one big leap. I was struck by the idea that creative people don't fail less; they simply run more experiments and learn faster from each one.</p>
+                        <p><strong>Application to Learn The Money:</strong> Many learners in my financial literacy programs carry "money trauma" and are afraid of making mistakes in front of others, especially when talking about debt or past decisions. For Learn The Money, I want to design low‑stakes practice: tiny financial experiments (like building a one‑week spending log or automating a $5 transfer) that let participants experience quick wins and see themselves as capable financial decision‑makers.</p>
+                        <p><strong>Independent Connections:</strong> The chapter's focus on self‑efficacy connects to Bandura's work and to growth mindset research by Dweck, both of which emphasize that beliefs about one's ability strongly shape persistence and outcomes in learning. In a financial literacy context, this means I need to design activities that explicitly surface and challenge "I'm just bad with money" narratives.</p>
+                        <p><strong>Personal Reflection:</strong> I noticed how often I still delay creative work (like curriculum prototyping) because I want it to be polished before sharing. This chapter nudged me to see my own perfectionism as a fear pattern, not a personality trait, and to treat each module of the Learn The Money curriculum as a prototype rather than a final product.</p>
+                        <p><strong>Next Steps:</strong> For the next module, I will prototype one "safe‑to‑fail" activity where teacher candidates design a short money‑conversation role‑play, test it with a peer, and debrief what felt uncomfortable or empowering. I will also add a short reflection question asking them to name one money‑related risk they are now willing to take in their teaching or personal life.</p>
+                        <div class="entry-metadata">
+                            <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 2; Bandura (1997); Dweck (2006)</div>
+                            <div class="metadata-item">⏱️ Read time: ~5 min</div>
+                        </div>
+                    </div>
                 </article>
 
-                <!-- Entry 3-10: PLACEHOLDERS -->
+                <!-- Entry 3 -->
                 <article class="entry-card status-published">
-    <div class="entry-header">
-        <span class="entry-number">ENTRY 3</span>
-        <h3>SPARK: From Blank Page to Insight</h3>
-        <div class="entry-date">Week 3: February 10, 2026</div>
-    </div>
-    <div class="entry-body">
-        <p><strong>Reading Focus:</strong> Chapter 3 – "SPARK: From Blank Page to Insight" in <em>Creative Confidence</em> by Kelley & Kelley.</p>
+                    <div class="entry-header">
+                        <span class="entry-number">ENTRY 3</span>
+                        <h3>SPARK: From Blank Page to Insight</h3>
+                        <div class="entry-date">Week 3: February 10, 2026</div>
+                    </div>
+                    <div class="entry-body">
+                        <p><strong>Reading Focus:</strong> Chapter 3 – "SPARK: From Blank Page to Insight" in <em>Creative Confidence</em> by Kelley & Kelley.</p>
+                        <p><strong>Key Concepts Learned:</strong> This chapter emphasizes generating quantity over quality in early ideation, reframing challenges with "How might we..." questions, and using empathy interviews to uncover hidden user needs. The Embrace Infant Warmer case study showed how observing real users (not just data) led to a breakthrough design that addressed the actual context of rural mothers rather than just technical specifications.</p>
+                        <p><strong>Application to Learn The Money:</strong> Financial literacy education often focuses on delivering content ("teach compound interest") rather than understanding learner context. For my project, this means conducting empathy interviews with teacher candidates and incarcerated women to understand their actual financial pain points and decision-making contexts, not just their knowledge gaps. How might we design financial literacy modules that feel as intuitive and life-saving as the Embrace warmer felt to rural mothers?</p>
+                        <p><strong>Independent Connections:</strong> The chapter's emphasis on "choosing creativity" and "thinking like a traveler" aligns with Carol Dweck's growth mindset research and the d.school's design thinking methodology. I also connected it to Lusardi's financial literacy research, which shows that knowledge alone doesn't change behavior—contextual understanding does.</p>
+                        <p><strong>Personal Reflection:</strong> The idea of "reframing challenges" hit home. I've been stuck thinking "How do I teach financial literacy to people with money trauma?" Now I'm reframing it as "How might we create financial confidence through tiny, safe experiments?" This shift opens up prototyping ideas like one-week money challenges or peer feedback circles.</p>
+                        <p><strong>Next Steps:</strong> This week I'll conduct 3 empathy interviews with teacher candidates about their financial teaching anxieties. I'll use "How might we..." questions to reframe their challenges and prototype one low-stakes financial activity for the Learn The Money curriculum.</p>
+                        <div class="entry-metadata">
+                            <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 3; Lusardi (2010); d.school Design Thinking Bootleg</div>
+                            <div class="metadata-item">⏱️ Read time: ~5 min</div>
+                        </div>
+                    </div>
+                </article>
 
-        <p><strong>Key Concepts Learned:</strong> This chapter emphasizes generating quantity over quality in early ideation, reframing challenges with "How might we..." questions, and using empathy interviews to uncover hidden user needs. The Embrace Infant Warmer case study showed how observing real users (not just data) led to a breakthrough design that addressed the actual context of rural mothers rather than just technical specifications.</p>
-
-        <p><strong>Application to Learn The Money:</strong> Financial literacy education often focuses on delivering content ("teach compound interest") rather than understanding learner context. For my project, this means conducting empathy interviews with teacher candidates and incarcerated women to understand their actual financial pain points and decision-making contexts, not just their knowledge gaps. How might we design financial literacy modules that feel as intuitive and life-saving as the Embrace warmer felt to rural mothers?</p>
-
-        <p><strong>Independent Connections:</strong> The chapter's emphasis on "choosing creativity" and "thinking like a traveler" aligns with Carol Dweck's growth mindset research and the d.school's design thinking methodology. I also connected it to Lusardi's financial literacy research, which shows that knowledge alone doesn't change behavior—contextual understanding does.</p>
-
-        <p><strong>Personal Reflection:</strong> The idea of "reframing challenges" hit home. I've been stuck thinking "How do I teach financial literacy to people with money trauma?" Now I'm reframing it as "How might we create financial confidence through tiny, safe experiments?" This shift opens up prototyping ideas like one-week money challenges or peer feedback circles.</p>
-
-        <p><strong>Next Steps:</strong> This week I'll conduct 3 empathy interviews with teacher candidates about their financial teaching anxieties. I'll use "How might we..." questions to reframe their challenges and prototype one low-stakes financial activity for the Learn The Money curriculum.</p>
-
-        <div class="entry-metadata">
-            <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 3; Lusardi (2010); d.school Design Thinking Bootleg</div>
-            <div class="metadata-item">⏱️ Read time: ~5 min</div>
-        </div>
-    </div>
-</article>
-
-
+                <!-- Entry 4-10 Placeholders -->
                 <article class="entry-card status-draft">
                     <div class="entry-header">
                         <span class="entry-number">ENTRY 4</span>
@@ -527,70 +542,5 @@
             <h3 style="color: var(--color-slate-900); margin-top: 1.5rem; margin-bottom: 1rem;">Entry Structure:</h3>
 
             <p><strong>1. Reading Focus</strong> (1-2 sentences)<br>
-            Identify the specific chapter and primary concepts from the week's reading assignment.</p>
+            Identify the spec
 
-            <p><strong>2. Key Concepts Learned</strong> (2-3 key ideas)<br>
-            Synthesize 2-3 major themes from the reading. Include definitions and cite the authors. This demonstrates understanding of core concepts.</p>
-
-            <p><strong>3. Application to My Project</strong> (How does this apply to Learn The Money?)<br>
-            Make explicit connections between reading concepts and your financial literacy curriculum development work. Explore "how might we..." questions.</p>
-
-            <p><strong>4. Independent Findings or Connections</strong> (Optional)<br>
-            Include any LinkedIn Learning courses, articles, or resources you discovered that relate to the week's topic. Cite these appropriately in APA format.</p>
-
-            <p><strong>5. Personal Reflection</strong> (Your thinking)<br>
-            What did this reading make you think about? How does it challenge or affirm your current approach?</p>
-
-            <p><strong>6. Next Steps or Questions</strong> (Action-oriented)<br>
-            What will you do this week to practice or apply these concepts? What questions do you still have?</p>
-
-            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.1);"><strong>📎 Citation Guide:</strong> Use <a href="https://www.citefast.com/?s=APA" target="_blank" style="color: var(--color-teal-500);">Citefast (APA Citation Tool)</a> for any additional sources. Include citations inline within journal entries.</p>
-        </section>
-
-        <!-- Resources Section -->
-        <section id="resources" class="welcome-section" style="border-left-color: var(--color-brown-600);">
-            <h2 style="color: var(--color-brown-600);">Resources & Links</h2>
-            
-            <p><strong>Primary Text:</strong></p>
-            <p>Kelley, D., & Kelley, T. (2013). <em>Creative confidence: Unleashing the creative potential within us all.</em> Crown Business. (All chapters)</p>
-
-            <p><strong>Key Research References to Explore:</strong></p>
-            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Dweck, C. S. (2006). <em>Mindset: The new psychology of success.</em> Random House.</li>
-                <li>Bandura, A. (1997). Self-efficacy and social cognitive development. Developmental Psychology, 28(5), 721-728.</li>
-                <li>Lusardi, A. (Financial literacy research) – especially Big 3 &amp; Big 5 frameworks</li>
-                <li>IDEO's Human-Centered Design Toolkit &amp; Design Thinking methods</li>
-            </ul>
-
-            <p><strong>Related Initiatives:</strong></p>
-            <ul style="margin-left: 1.5rem;">
-                <li><a href="https://learnthemoney.org" target="_blank" style="color: var(--color-teal-500);">Learn The Money Initiative</a></li>
-                <li><a href="https://www.davidsquires.info" target="_blank" style="color: var(--color-teal-500);">Example Design Journal (David Squires)</a></li>
-                <li><a href="https://www.citefast.com/?s=APA" target="_blank" style="color: var(--color-teal-500);">Citefast APA Citation Tool</a></li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Design Journal. <strong>Financial Literacy & Creative Confidence Course Project</strong></p>
-        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.8;">Integrating design thinking methodology with financial education for underserved populations | Learning Science &amp; Instructional Design</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    // Update active nav link
-                    document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
