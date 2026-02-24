@@ -32,7 +32,7 @@
         header {
             background: linear-gradient(135deg, var(--color-teal-500) 0%, var(--color-teal-600) 100%);
             color: white;
-            padding: 2.5rem 2rem;
+            padding: 2.5rem 2rem 1.5rem 2rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -46,13 +46,26 @@
         header p {
             font-size: 1.1rem;
             opacity: 0.95;
-            margin-bottom: 1rem;
+            margin-bottom: 0.4rem;
         }
 
         .header-subtitle {
             font-size: 0.95rem;
-            opacity: 0.85;
+            opacity: 0.9;
             font-style: italic;
+        }
+
+        .header-image-wrapper {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-image-wrapper img {
+            max-width: 520px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
         }
 
         /* Project Abstract Section */
@@ -129,7 +142,7 @@
             padding: 0 2rem;
         }
 
-        /* Welcome / generic card */
+        /* Generic card sections */
         .welcome-section {
             background: white;
             padding: 2rem;
@@ -343,13 +356,18 @@
         <h1>📖 Design Journal</h1>
         <p>Financial Literacy & Creative Confidence</p>
         <p class="header-subtitle">Integrating Design Thinking with the Learn The Money Initiative</p>
+
+        <!-- Header Illustration -->
+        <div class="header-image-wrapper">
+            <img src="money_stories_class.png" alt="Adult learners sharing money stories in a financial literacy classroom">
+        </div>
     </header>
 
     <!-- Project Abstract -->
     <section class="project-abstract">
         <div class="abstract-box">
             <h2>🎯 Project Abstract</h2>
-            <p><strong>Learn The Money:</strong> A human-centered financial literacy curriculum designed through design thinking methodology for teacher candidates and underserved populations. By applying <em>Creative Confidence</em> principles, this project transforms financial education from rote knowledge transmission to confidence-building, context-aware learning experiences that address real learner needs,money trauma, decision paralysis, and systemic barriers.</p>
+            <p><strong>Learn The Money:</strong> A human-centered financial literacy curriculum designed through design thinking methodology for teacher candidates and underserved populations. By applying <em>Creative Confidence</em> principles, this project transforms financial education from rote knowledge transmission to confidence-building, context-aware learning experiences that address real learner needs—money trauma, decision paralysis, and systemic barriers.</p>
             <p><strong>The goal:</strong> Equip educators with tools to foster financial self-efficacy in their students and communities through a 10-week design journey documented in this journal.</p>
         </div>
     </section>
@@ -362,6 +380,7 @@
             <li><a href="#template" class="nav-link">Entry Template</a></li>
             <li><a href="#resources" class="nav-link">Resources</a></li>
             <li><a href="#extended-explanation" class="nav-link">Extended Explanation</a></li>
+            <li><a href="#design-story" class="nav-link">Design Story</a></li>
         </ul>
     </nav>
 
@@ -390,8 +409,8 @@
                     </div>
                     <div class="entry-body">
                         <p><strong>Reading Focus:</strong> Chapter 1 – "FLIP: From Design Thinking to Creative Confidence".</p>
-                        <p><strong>Key Concepts Learned:</strong> The Kelley brothers describe “FLIP” as the shift from seeing creativity as rare to seeing it as a learnable capacity. The chapter introduces the three-circle design thinking framework,<em>Feasibility, Viability, Desirability</em>,and uses the Doug Dietz MRI case to show how human‑centered design can dramatically change experiences for vulnerable users.</p>
-                        <p><strong>Application to Learn The Money:</strong> Traditional financial literacy often stays in feasibility (math, content) and viability (products) while ignoring desirability,the fears, hopes, and lived realities of learners. For Learn The Money, I need to flip my own practice so I start with empathy for teacher candidates and incarcerated women, then design content around their real contexts rather than abstract standards.</p>
+                        <p><strong>Key Concepts Learned:</strong> The Kelley brothers describe “FLIP” as the shift from seeing creativity as rare to seeing it as a learnable capacity. The chapter introduces the three-circle design thinking framework—<em>Feasibility, Viability, Desirability</em>—and uses the Doug Dietz MRI case to show how human‑centered design can dramatically change experiences for vulnerable users.</p>
+                        <p><strong>Application to Learn The Money:</strong> Traditional financial literacy often stays in feasibility (math, content) and viability (products) while ignoring desirability—the fears, hopes, and lived realities of learners. For Learn The Money, I need to flip my own practice so I start with empathy for teacher candidates and incarcerated women, then design content around their real contexts rather than abstract standards.</p>
                         <p><strong>Reflection:</strong> The growth‑mindset lens helps me see “I’m bad with money” as a belief, not a fixed trait. If I expect creative confidence from my learners, I also have to model it by sharing in‑progress work and inviting feedback instead of waiting until everything is polished.</p>
                         <p><strong>Next Steps:</strong> I will conduct short empathy interviews with 3–5 teacher candidates to surface their money stories, anxieties, and prior experiences. These insights will guide my first round of prototype activities.</p>
                         <div class="entry-metadata">
@@ -411,9 +430,9 @@
                     <div class="entry-body">
                         <p><strong>Reading Focus:</strong> Chapter 2 – "DARE: From Fear to Courage" in <em>Creative Confidence</em>.</p>
                         <p><strong>Key Concepts Learned:</strong> The authors reframe fear of failure as a normal part of creative work and highlight Bandura’s guided‑mastery research, showing how confidence grows through a series of small, successful steps. Creative people do not fail less; they run more experiments and interpret each attempt as learning rather than personal judgment.</p>
-                        <p><strong>Application to Learn The Money:</strong> Many learners in my programs carry money trauma and shame, which makes them fearful of public mistakes. I want to design low‑stakes practice,tiny financial experiments like a one‑week spending log or a $5 automated transfer,that allow learners to experience quick, concrete wins and start rewriting their internal stories about being “bad with money.”</p>
+                        <p><strong>Application to Learn The Money:</strong> Many learners in my programs carry money trauma and shame, which makes them fearful of public mistakes. I want to design low‑stakes practice—tiny financial experiments like a one‑week spending log or a $5 automated transfer—that allow learners to experience quick, concrete wins and start rewriting their internal stories about being “bad with money.”</p>
                         <p><strong>Independent Connections:</strong> This chapter connects directly to Bandura’s self‑efficacy work and Dweck’s growth mindset research. In a financial‑literacy context, that means building structures that help learners see evidence of their own competence, not just hear explanations from an expert.</p>
-                        <p><strong>Personal Reflection:</strong> I recognized my own perfectionism as a fear pattern,I delay curriculum prototypes because I want them to be publication‑ready. DARE nudges me to treat each version of Learn The Money as a prototype and to make my “messy middle” visible rather than hiding it.</p>
+                        <p><strong>Personal Reflection:</strong> I recognized my own perfectionism as a fear pattern—I delay curriculum prototypes because I want them to be publication‑ready. DARE nudges me to treat each version of Learn The Money as a prototype and to make my “messy middle” visible rather than hiding it.</p>
                         <p><strong>Next Steps:</strong> I will design one “safe‑to‑fail” role‑play where teacher candidates practice a difficult money conversation, then debrief what felt empowering or uncomfortable. I’ll ask each participant to name one small money‑related risk they are now willing to take in their own life or teaching.</p>
                         <div class="entry-metadata">
                             <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 2; Bandura (1997); Dweck (2006)</div>
@@ -432,9 +451,9 @@
                     <div class="entry-body">
                         <p><strong>Reading Focus:</strong> Chapter 3 – "SPARK: From Blank Page to Insight".</p>
                         <p><strong>Key Concepts Learned:</strong> The chapter emphasizes generating lots of ideas before evaluating them, reframing challenges with “How might we…?” questions, and using field observations and empathy interviews to uncover needs that data alone can’t reveal. The Embrace Infant Warmer case demonstrates how reframing from “low‑cost incubator” to “baby‑warming solution for rural mothers” opened up an entirely new product direction.</p>
-                        <p><strong>Application to Learn The Money:</strong> Instead of asking “How do I teach all the required money topics?”, I’m reframing to “How might we create financial confidence through small, meaningful experiments?” This pushes me to observe real contexts,teacher‑candidate classrooms, correctional‑education settings,and design activities that fit those realities.</p>
+                        <p><strong>Application to Learn The Money:</strong> Instead of asking “How do I teach all the required money topics?”, I’m reframing to “How might we create financial confidence through small, meaningful experiments?” This pushes me to observe real contexts—teacher‑candidate classrooms, correctional‑education settings—and design activities that fit those realities.</p>
                         <p><strong>Independent Connections:</strong> SPARK echoes design‑thinking practices from the d.school and aligns with Lusardi’s research showing that context and behavior matter as much as content knowledge. It also reminds me of lean‑startup idea flow: the more ideas you surface, the more likely you are to find a high‑leverage one.</p>
-                        <p><strong>Personal Reflection:</strong> I saw how often I open a blank document and wait for the “perfect” curriculum idea instead of using prompts, constraints, or rough sketches to get started. Adopting a traveler’s mindset,noticing friction points in everyday money experiences,gives me more raw material to design from.</p>
+                        <p><strong>Personal Reflection:</strong> I saw how often I open a blank document and wait for the “perfect” curriculum idea instead of using prompts, constraints, or rough sketches to get started. Adopting a traveler’s mindset—noticing friction points in everyday money experiences—gives me more raw material to design from.</p>
                         <p><strong>Next Steps:</strong> This week I will conduct three empathy interviews with teacher candidates, focusing on moments when they felt stuck or successful with money. I’ll turn their stories into at least five “How might we…?” questions and use those as seeds for new Learn The Money activities.</p>
                         <div class="entry-metadata">
                             <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 3; Lusardi (2010); d.school resources</div>
@@ -453,10 +472,10 @@
                     <div class="entry-body">
                         <p><strong>Reading Focus:</strong> Chapter 4 – "LEAP: From Planning to Action" in <em>Creative Confidence</em>.</p>
                         <p><strong>Key Concepts Learned:</strong> This chapter describes the “knowing–doing gap,” where teams talk about innovation but hesitate to test ideas in the real world. The Pulse news‑app story illustrates how tight deadlines and constant user feedback pushed the founders to prototype quickly in a café rather than perfecting a long business plan. The authors argue that small, fast experiments are more valuable than detailed plans that never get implemented.</p>
-                        <p><strong>Application to Learn The Money:</strong> I realized I’ve been treating parts of Learn The Money like a planning problem,collecting articles, frameworks, and citations without enough live testing. LEAP reframes my constraints (busy teacher candidates, limited class time, complex money trauma) as design fuel. Instead of waiting until a whole module is “ready,” I can run tiny pilots: one 15‑minute activity, a quick confidence check‑in, or a single prototype handout tested with a small group.</p>
+                        <p><strong>Application to Learn The Money:</strong> I realized I’ve been treating parts of Learn The Money like a planning problem—collecting articles, frameworks, and citations without enough live testing. LEAP reframes my constraints (busy teacher candidates, limited class time, complex money trauma) as design fuel. Instead of waiting until a whole module is “ready,” I can run tiny pilots: one 15‑minute activity, a quick confidence check‑in, or a single prototype handout tested with a small group.</p>
                         <p><strong>Independent Connections:</strong> LEAP connects to lean‑startup ideas about minimum viable products and iterative learning with customers. It also mirrors the gap in financial literacy where people already “know” they should budget or save but struggle to act. That insight reinforces Lusardi’s findings that knowledge alone is insufficient; I need to design for realistic, doable money actions that fit learners’ daily lives.</p>
                         <p><strong>Personal Reflection:</strong> I saw myself in the people who wait for the perfect moment or perfect plan before starting. My tendency to want polished, branded curricula before sharing is really a fear of visible failure. LEAP pushes me to measure progress by experiments run, not documents drafted.</p>
-                        <p><strong>Next Steps:</strong> This week I will prototype one “Money Micro‑Experiment” activity that teacher candidates can run with peers or family,such as a three‑day spending‑awareness challenge. I’ll collect quick feedback using two prompts (“What helped you feel more confident?” and “What would you change?”) and use that data to refine the activity for incarcerated learners and community workshops.</p>
+                        <p><strong>Next Steps:</strong> This week I will prototype one “Money Micro‑Experiment” activity that teacher candidates can run with peers or family—such as a three‑day spending‑awareness challenge. I’ll collect quick feedback using two prompts (“What helped you feel more confident?” and “What would you change?”) and use that data to refine the activity for incarcerated learners and community workshops.</p>
                         <div class="entry-metadata">
                             <div class="metadata-item">📚 Citation: Kelley & Kelley (2013), Ch. 4; Lusardi (2010)</div>
                             <div class="metadata-item">⏱️ Read time: ~5 min</div>
@@ -472,7 +491,7 @@
                         <div class="entry-date">Week 5: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Chapter 5 reflection</em></p>
+                        <p><em>Coming soon: Chapter 5 reflection & design story integration.</em></p>
                     </div>
                 </article>
 
@@ -483,7 +502,7 @@
                         <div class="entry-date">Week 6: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Chapter 6 reflection (Desk Crit)</em></p>
+                        <p><em>Coming soon: Chapter 6 reflection (Desk Crit).</em></p>
                     </div>
                 </article>
 
@@ -494,7 +513,7 @@
                         <div class="entry-date">Week 7: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Chapter 7 reflection</em></p>
+                        <p><em>Coming soon: Chapter 7 reflection.</em></p>
                     </div>
                 </article>
 
@@ -505,7 +524,7 @@
                         <div class="entry-date">Week 8: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Cross-chapter synthesis and LinkedIn Learning applications</em></p>
+                        <p><em>Coming soon: Cross-chapter synthesis and LinkedIn Learning applications.</em></p>
                     </div>
                 </article>
 
@@ -516,7 +535,7 @@
                         <div class="entry-date">Week 9: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Real-world curriculum design applications</em></p>
+                        <p><em>Coming soon: Real-world curriculum design applications.</em></p>
                     </div>
                 </article>
 
@@ -527,7 +546,7 @@
                         <div class="entry-date">Week 10: [Your Date]</div>
                     </div>
                     <div class="entry-body">
-                        <p><em>Coming soon: Final synthesis, lessons learned, and future applications</em></p>
+                        <p><em>Coming soon: Final synthesis, lessons learned, and future applications.</em></p>
                     </div>
                 </article>
             </div>
@@ -581,15 +600,46 @@
 
             <p><strong>Artifact overview.</strong> This web‑based design journal documents the iterative development of <em>Learn The Money</em>, a human‑centered financial literacy curriculum informed by design thinking and the framework in <em>Creative Confidence</em>. Across ten weeks, the site traces how ideas move from theory to prototype to implementation in ways that are transparent, research‑grounded, and teachable to others.</p>
 
-            <p><strong>Potential audiences.</strong> The primary audience is teacher candidates and practicing educators who want to integrate financial literacy into their classrooms but feel underprepared or anxious about teaching money topics. The journal offers them a concrete example of how an educator wrestles with ambiguity, fear, and institutional constraints while still moving a project forward. A second audience is higher‑education faculty and instructional designers in teacher preparation, adult education, or community‑based programs; for them, the artifact serves as a live case study in applying design‑thinking practices,empathy interviews, reframing, and rapid prototyping,to a complex socio‑emotional domain like money. A third audience includes community partners and stakeholders connected to Learn The Money (correctional education programs, nonprofits, funders) who need a clear explanation of what makes this curriculum distinct from traditional budgeting workshops. Finally, the journal also contributes to a broader professional portfolio for immigration and career review panels by demonstrating a coherent research‑to‑practice trajectory.</p>
+            <p><strong>Potential audiences.</strong> The primary audience is teacher candidates and practicing educators who want to integrate financial literacy into their classrooms but feel underprepared or anxious about teaching money topics. The journal offers them a concrete example of how an educator wrestles with ambiguity, fear, and institutional constraints while still moving a project forward. A second audience is higher‑education faculty and instructional designers in teacher preparation, adult education, or community‑based programs; for them, the artifact serves as a live case study in applying design‑thinking practices—empathy interviews, reframing, and rapid prototyping—to a complex socio‑emotional domain like money. A third audience includes community partners and stakeholders connected to Learn The Money (correctional education programs, nonprofits, funders) who need a clear explanation of what makes this curriculum distinct from traditional budgeting workshops. Finally, the journal also contributes to a broader professional portfolio for immigration and career review panels by demonstrating a coherent research‑to‑practice trajectory.</p>
 
-            <p><strong>Problem or opportunity.</strong> The artifact responds to two overlapping gaps. On the learner side, there is a persistent “knowing–doing gap” in financial literacy: adults can often explain concepts like budgeting or compound interest but still feel stuck, ashamed, or helpless about their own money decisions. Traditional programs emphasize content coverage and quizzes while underestimating money trauma, shame, and learned helplessness,especially among underserved populations such as incarcerated women or students from chronically under‑resourced communities. On the educator side, many preservice and in‑service teachers care deeply about financial capability but lack curricular resources, pedagogical models, and personal confidence. They may regard money as too personal, too political, or beyond their role. Together, these gaps represent both a problem (missed opportunities to build financial agency) and an opportunity to design learning experiences that center confidence and context, not just information.</p>
+            <p><strong>Problem or opportunity.</strong> The artifact responds to two overlapping gaps. On the learner side, there is a persistent “knowing–doing gap” in financial literacy: adults can often explain concepts like budgeting or compound interest but still feel stuck, ashamed, or helpless about their own money decisions. Traditional programs emphasize content coverage and quizzes while underestimating money trauma, shame, and learned helplessness—especially among underserved populations such as incarcerated women or students from chronically under‑resourced communities. On the educator side, many preservice and in‑service teachers care deeply about financial capability but lack curricular resources, pedagogical models, and personal confidence. They may regard money as too personal, too political, or beyond their role. Together, these gaps represent both a problem (missed opportunities to build financial agency) and an opportunity to design learning experiences that center confidence and context, not just information.</p>
 
-            <p><strong>How the artifact addresses the need.</strong> First, the design journal models a design‑thinking stance applied to financial literacy. Each entry uses a consistent 15/5 format (reading focus, key concepts, application, independent connections, reflection, next steps), making visible how abstract ideas,guided mastery, growth mindset, rapid experimentation,are translated into specific changes in activities, facilitation, and assessment. Instead of presenting polished “final” lessons, the artifact normalizes iterative experimentation and safe‑to‑fail tests that educators can adapt in their own settings.</p>
+            <p><strong>How the artifact addresses the need.</strong> First, the design journal models a design‑thinking stance applied to financial literacy. Each entry uses a consistent 15/5 format (reading focus, key concepts, application, independent connections, reflection, next steps), making visible how abstract ideas—guided mastery, growth mindset, rapid experimentation—are translated into specific changes in activities, facilitation, and assessment. Instead of presenting polished “final” lessons, the artifact normalizes iterative experimentation and safe‑to‑fail tests that educators can adapt in their own settings.</p>
 
-            <p>Second, the journal keeps learners at the center by continually foregrounding specific populations: teacher candidates, incarcerated women, college students, and community members carrying money trauma. Entries explicitly connect course concepts and research (e.g., Bandura on self‑efficacy, Dweck on mindset, Lusardi on financial capability) to concrete Learn The Money scenarios. This shows how human‑centered design uncovers barriers that purely cognitive curricula miss,for example, fear of public disclosure around debt or a belief that being “bad with money” is a fixed identity rather than a changeable skill set.</p>
+            <p>Second, the journal keeps learners at the center by continually foregrounding specific populations: teacher candidates, incarcerated women, college students, and community members carrying money trauma. Entries explicitly connect course concepts and research (e.g., Bandura on self‑efficacy, Dweck on mindset, Lusardi on financial capability) to concrete Learn The Money scenarios. This shows how human‑centered design uncovers barriers that purely cognitive curricula miss—for example, fear of public disclosure around debt or a belief that being “bad with money” is a fixed identity rather than a changeable skill set.</p>
 
             <p>Third, the artifact creates a transparent narrative of growth over time. By archiving early assumptions, evolving questions, and course corrections, it pushes back against perfectionism and highlights that meaningful curriculum emerges from many small leaps rather than a single breakthrough. Constraints such as limited class time, institutional expectations, and learners’ life circumstances are treated as design prompts rather than excuses to maintain the status quo. For educators and stakeholders who visit the site, this narrative communicates that Learn The Money is not just another static workshop but an evolving, research‑informed effort to build financial confidence and agency among people who have historically been underserved by both education and financial systems.</p>
+        </section>
+
+        <!-- Design Story Section -->
+        <section id="design-story" class="welcome-section" style="border-left-color: var(--color-teal-500);">
+            <h2>Design Story: First Day in Learn The Money</h2>
+
+            <p><strong>Perspective:</strong> Teacher candidate experiencing the Learn The Money curriculum for the first time.</p>
+
+            <p>I’m sitting in the back row, close enough to the door that I can leave if I need to. I tell myself I’m just here for the extra credit, but my stomach knows better. Any time someone says “financial literacy,” my chest tightens. I’ve made too many mistakes with money to pretend this is neutral content.</p>
+
+            <p>The room feels different from what I expect. There’s no big slide that says “Budgeting 101.” Instead, the screen shows the words <em>Money Stories</em> and a simple prompt: <em>When did money first feel powerful in your life?</em> The facilitator—another grad student, not some distant expert—explains that today is about curiosity, not judgment. I’m not sure I believe them yet, but I notice that my shoulders drop a little.</p>
+
+            <p>We start with a quick anonymous poll on our phones. “On a scale of 1–5, how confident do you feel talking about money with your students or future students?” I tap 2 and feel a tiny wave of shame, imagining everyone else picking 4 or 5. The live results appear: most people are clustered around 2 and 3. I’m surprised, then relieved. I’m not the only one who feels underprepared.</p>
+
+            <p>Next, we listen to a short story about a learner named “María,” a first‑generation college student trying to decide between paying down credit card debt and helping family with rent. As the story unfolds, I feel myself leaning forward. I recognize the tension between being responsible and being loyal, between numbers on a spreadsheet and people you love. The facilitator doesn’t tell us what María “should” do. Instead, they ask, “What feelings do you think she’s carrying into a classroom conversation about money?” I jot down: fear of judgment, pride, fatigue, and a quiet hope that someone might finally understand.</p>
+
+            <p>Then comes the part I dreaded: sharing. But the structure makes it feel safer. We work in pairs with a simple protocol from the Learn The Money site. One person answers three prompts—“My earliest money memory…,” “One belief I was taught about money…,” and “A time money felt out of control…”—while the other just listens and reflects back emotions, not advice. We’re told to stay in the present tense: “I feel,” “I notice,” “I’m thinking,” as if the memory is happening right now.</p>
+
+            <p>When it’s my turn, I almost default to a joke, but my partner waits quietly. I hear myself say, “I’m eight years old, standing with my mom at the customer‑service desk while she argues about an overdraft fee.” As I describe the scene, I can feel the fluorescent lights, the crumpled receipt, my mom’s voice tightening. I realize that a part of me still believes banks are like principals’ offices—places you only go when you’re in trouble.</p>
+
+            <p>My partner doesn’t rush to fix it. She says, “I hear how small and responsible you feel at the same time.” That sentence lands deeper than any financial tip I’ve heard in years. I notice that this activity isn’t about budgeting yet; it’s about making space for the emotions we drag into budgeting.</p>
+
+            <p>Later, we shift into designing. The facilitator introduces a “Money Micro‑Experiment” card from the Learn The Money curriculum: a three‑day spending‑awareness challenge we can adapt for our own contexts. In small groups, we rewrite the instructions so they would make sense for different learners—ninth‑graders, community‑college students, or incarcerated women. We have to decide: What tone would feel respectful? What examples would feel real, not performative? We keep coming back to our own money stories as we argue about wording.</p>
+
+            <p>As we work, I notice a shift. I’m not just a student being taught about money; I’m a designer thinking about how money feels to other people. When someone suggests adding a “no shame” rule to the challenge, I feel a quiet click of recognition. If I’m this nervous in a graduate class, how must my future students feel?</p>
+
+            <p>We end with a brief reflection in our journals, guided by prompts from the website: “Right now, I understand that money conversations in my teaching…” and “A small change I’m willing to test next week is…” I write, “I understand that money conversations are really identity conversations. Next week, I’ll prototype a five‑minute ‘money feelings’ warm‑up before any numbers.” For the first time, that idea feels doable instead of overwhelming.</p>
+
+            <p>Walking out of the session, I still don’t feel like a financial expert. But I notice that my inner story has shifted from “I’m bad with money” to “I am learning how to host better money conversations.” I can picture my future students more clearly, not as blank slates I must fill with content, but as people carrying their own María‑like stories into the room.</p>
+
+            <p>On the way home, I re‑read this design story on the Learn The Money site. Seeing the session through my own first‑person narrative helps me notice where the curriculum is working—reducing shame, inviting reflection—and where it still needs to be softer, more honest, and more practical. The story becomes a design tool: if a future activity doesn’t respect the feelings I just lived on the page, it probably needs to change.</p>
         </section>
     </div>
 
@@ -618,3 +668,4 @@
     </script>
 </body>
 </html>
+
