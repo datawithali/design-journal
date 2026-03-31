@@ -772,5 +772,62 @@
     <footer>
         <p>© 2026 Learn The Money Design Journal • Built with GitHub Pages</p>
     </footer>
+            <script>
+function showCalculator(calculatorId) {
+    const panels = document.querySelectorAll('.calculator-panel');
+    panels.forEach(panel => {
+        panel.style.display = 'none';
+    });
+
+    const selectedPanel = document.getElementById(calculatorId);
+    if (selectedPanel) {
+        selectedPanel.style.display = 'block';
+    }
+}
+
+function calculatePayment() {
+    const amount = parseFloat(document.getElementById('loanAmount').value);
+    const annualRate = parseFloat(document.getElementById('interestRate').value);
+    const months = parseInt(document.getElementById('loanMonths').value);
+    const result = document.getElementById('paymentResult');
+
+    if (isNaN(amount) || isNaN(annualRate) || isNaN(months) || amount <= 0 || months <= 0) {
+        result.textContent = 'Please enter valid positive numbers for all fields.';
+        return;
+    }
+
+    const monthlyRate = annualRate / 100 / 12;
+    let payment;
+
+    if (monthlyRate === 0) {
+        payment = amount / months;
+    } else {
+        payment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+    }
+
+    result.textContent = `Estimated monthly payment: $${payment.toFixed(2)}`;
+}
+
+function calculateSavings() {
+    const goal = parseFloat(document.getElementById('savingsGoal').value);
+    const contribution = parseFloat(document.getElementById('monthlyContribution').value);
+    const result = document.getElementById('savingsResult');
+
+    if (isNaN(goal) || isNaN(contribution) || goal <= 0 || contribution <= 0) {
+        result.textContent = 'Please enter valid positive numbers for both fields.';
+        return;
+    }
+
+    const months = Math.ceil(goal / contribution);
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
+
+    if (years > 0) {
+        result.textContent = `Estimated time to reach your goal: ${years} year(s) and ${remainingMonths} month(s).`;
+    } else {
+        result.textContent = `Estimated time to reach your goal: ${months} month(s).`;
+    }
+}
+</script>
 </body>
 </html>
