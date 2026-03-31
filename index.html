@@ -385,6 +385,7 @@
             <li><a href="#extended-explanation" class="nav-link">Extended Explanation</a></li>
             <li><a href="#design-conjectures" class="nav-link">Design Conjectures</a></li>
             <li><a href="#design-story" class="nav-link">Design Story</a></li>
+            <li><a href="#final-prototype" class="nav-link">Presentation 2</a></li>
         </ul>
     </nav>
 
@@ -705,6 +706,66 @@
             <p>We end with a brief reflection. On an index card, we answer two questions: “What is one belief about money you want to examine more closely?” and “What is one tiny experiment you’re willing to try this week?” I write, “Belief: If I make a money mistake, it proves I’m irresponsible. Experiment: Spend 20 minutes looking at my bank app without judging myself—just noticing.” It feels almost laughably small, but also strangely radical.</p>
 
             <p>Walking out, I notice that my chest feels lighter. Nothing about my bank account has changed in ninety minutes, but something about the story I tell myself has. For the first time, I can imagine bringing money into my future classroom not as a unit to survive, but as a conversation to design—carefully, collaboratively, and without shame.</p>
+        </section>
+
+                        <!-- Final Prototype Section -->
+        <section id="final-prototype" class="welcome-section" style="border-left-color: var(--color-teal-600);">
+            <h2>Final Prototype</h2>
+            <p>This section demonstrates interactive prototype features for the current version of <strong>Learn The Money</strong>. Select a calculator below to explore how the prototype can support practical financial decision-making.</p>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
+                <button class="initiative-link" onclick="showCalculator('payment-calculator')">Monthly Payment Calculator</button>
+                <button class="initiative-link" onclick="showCalculator('savings-calculator')">Savings Goal Calculator</button>
+            </div>
+
+            <div id="payment-calculator" class="calculator-panel" style="display: none; margin-top: 1.5rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--color-teal-600);">Monthly Payment Calculator</h3>
+
+                <div style="display: grid; gap: 1rem; max-width: 520px;">
+                    <label>
+                        Loan Amount ($)
+                        <input type="number" id="loanAmount" placeholder="1000" style="width: 100%; padding: 0.75rem; margin-top: 0.35rem;">
+                    </label>
+
+                    <label>
+                        Annual Interest Rate (%)
+                        <input type="number" id="interestRate" placeholder="5" step="0.01" style="width: 100%; padding: 0.75rem; margin-top: 0.35rem;">
+                    </label>
+
+                    <label>
+                        Number of Months
+                        <input type="number" id="loanMonths" placeholder="12" style="width: 100%; padding: 0.75rem; margin-top: 0.35rem;">
+                    </label>
+
+                    <button class="initiative-link" onclick="calculatePayment()" style="width: fit-content;">Calculate Payment</button>
+
+                    <div id="paymentResult" class="format-note">
+                        Your estimated monthly payment will appear here.
+                    </div>
+                </div>
+            </div>
+
+            <div id="savings-calculator" class="calculator-panel" style="display: none; margin-top: 1.5rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--color-teal-600);">Savings Goal Calculator</h3>
+
+                <div style="display: grid; gap: 1rem; max-width: 520px;">
+                    <label>
+                        Savings Goal ($)
+                        <input type="number" id="savingsGoal" placeholder="5000" style="width: 100%; padding: 0.75rem; margin-top: 0.35rem;">
+                    </label>
+
+                    <label>
+                        Monthly Contribution ($)
+                        <input type="number" id="monthlyContribution" placeholder="200" style="width: 100%; padding: 0.75rem; margin-top: 0.35rem;">
+                    </label>
+
+                    <button class="initiative-link" onclick="calculateSavings()" style="width: fit-content;">Calculate Timeline</button>
+
+                    <div id="savingsResult" class="format-note">
+                        Your savings timeline will appear here.
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
