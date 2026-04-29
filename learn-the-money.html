@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn The Money — Doctoral Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       Art direction: Doctoral financial literacy portfolio → scholarly warmth
+       Palette: warm beige surfaces, teal primary accent (Nexus)
+       Typography: Instrument Serif (display) + Work Sans (body)
+       Density: spacious editorial
+    ============================================= */
+
+    /* ── TOKENS ── */
+    :root, [data-theme="light"] {
+      --color-bg:             #f7f6f2;
+      --color-surface:        #f9f8f5;
+      --color-surface-2:      #fbfbf9;
+      --color-surface-offset: #f3f0ec;
+      --color-surface-offset-2: #edeae5;
+      --color-surface-dynamic: #e6e4df;
+      --color-divider:        #dcd9d5;
+      --color-border:         #d4d1ca;
+      --color-text:           #28251d;
+      --color-text-muted:     #6b6a65;
+      --color-text-faint:     #bab9b4;
+      --color-text-inverse:   #f9f8f4;
+      --color-primary:        #01696f;
+      --color-primary-hover:  #0c4e54;
+      --color-primary-active: #0f3638;
+      --color-primary-highlight: #cedcd8;
+      --color-accent-warm:    #5e5240;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+      --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+      --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+      --content-narrow: 640px;
+      --content-default: 900px;
+      --content-wide: 1200px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Work Sans', 'Helvetica Neue', sans-serif;
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+      --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
+      --space-16: 4rem;   --space-20: 5rem;   --space-24: 6rem;
+    }
+    [data-theme="dark"] {
+      --color-bg:             #171614;
+      --color-surface:        #1c1b19;
+      --color-surface-2:      #201f1d;
+      --color-surface-offset: #1d1c1a;
+      --color-surface-offset-2: #22211f;
+      --color-surface-dynamic: #2d2c2a;
+      --color-divider:        #262523;
+      --color-border:         #393836;
+      --color-text:           #cdccca;
+      --color-text-muted:     #9a9895;
+      --color-text-faint:     #5a5957;
+      --color-text-inverse:   #2b2a28;
+      --color-primary:        #4f98a3;
+      --color-primary-hover:  #227f8b;
+      --color-primary-active: #1a626b;
+      --color-primary-highlight: #313b3b;
+      --color-accent-warm:    #c4b49a;
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+      --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3);
+      --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg:#171614; --color-surface:#1c1b19; --color-surface-2:#201f1d;
+        --color-surface-offset:#1d1c1a; --color-surface-offset-2:#22211f;
+        --color-surface-dynamic:#2d2c2a; --color-divider:#262523; --color-border:#393836;
+        --color-text:#cdccca; --color-text-muted:#9a9895; --color-text-faint:#5a5957;
+        --color-text-inverse:#2b2a28; --color-primary:#4f98a3; --color-primary-hover:#227f8b;
+        --color-primary-active:#1a626b; --color-primary-highlight:#313b3b;
+        --color-accent-warm:#c4b49a;
+        --shadow-sm:0 1px 2px oklch(0 0 0/0.2); --shadow-md:0 4px 12px oklch(0 0 0/0.3);
+        --shadow-lg:0 12px 32px oklch(0 0 0/0.4);
+      }
+    }
+
+    /* ── BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility; scroll-behavior: smooth;
+      scroll-padding-top: var(--space-16);
+    }
+    body {
+      min-height: 100dvh; line-height: 1.65;
+      font-family: var(--font-body); font-size: var(--text-base);
+      color: var(--color-text); background: var(--color-bg);
+    }
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    ul[role="list"], ol[role="list"] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.2; }
+    p, li, figcaption { text-wrap: pretty; max-width: 72ch; }
+    ::selection { background: oklch(from var(--color-primary) l c h / 0.2); color: var(--color-text); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    button { cursor: pointer; background: none; border: none; }
+    a, button, [role="button"], input, textarea, select {
+      transition: color var(--transition-interactive), background var(--transition-interactive),
+                  border-color var(--transition-interactive), box-shadow var(--transition-interactive),
+                  opacity var(--transition-interactive);
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+
+    /* ── SKIP LINK ── */
+    .skip-link { position: absolute; top: var(--space-2); left: var(--space-2); background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; z-index: 9999; transform: translateY(-200%); transition: transform 0.2s; }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--color-primary);
+      padding: clamp(var(--space-12), 8vw, var(--space-24)) var(--space-6) clamp(var(--space-10), 6vw, var(--space-20));
+      position: relative; overflow: hidden;
+    }
+    .site-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 110%, oklch(from var(--color-primary) calc(l + 0.1) c h / 0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-inner { max-width: var(--content-default); margin-inline: auto; position: relative; }
+    .header-eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      font-family: var(--font-body); font-size: var(--text-xs);
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: oklch(from var(--color-text-inverse) l c h / 0.75);
+      margin-bottom: var(--space-4);
+    }
+    .header-eyebrow-dot { width: 6px; height: 6px; border-radius: var(--radius-full); background: currentColor; }
+    .site-header h1 {
+      font-family: var(--font-display); font-size: var(--text-3xl);
+      font-weight: 400; color: var(--color-text-inverse);
+      line-height: 1.1; margin-bottom: var(--space-4);
+    }
+    .site-header h1 em { font-style: italic; }
+    .header-tagline {
+      font-size: var(--text-base); color: oklch(from var(--color-text-inverse) l c h / 0.85);
+      max-width: 52ch; margin-bottom: var(--space-6);
+    }
+    .header-meta {
+      display: flex; flex-wrap: wrap; gap: var(--space-4);
+      font-size: var(--text-xs); color: oklch(from var(--color-text-inverse) l c h / 0.7);
+    }
+    .header-meta-item { display: flex; align-items: center; gap: var(--space-2); }
+
+    /* ── STICKY NAV ── */
+    .site-nav {
+      background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+      position: sticky; top: 0; z-index: 200;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      max-width: var(--content-wide); margin-inline: auto;
+      padding: 0 var(--space-6);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-4); min-height: 56px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: var(--space-2);
+      text-decoration: none; color: var(--color-text);
+      font-size: var(--text-sm); font-weight: 600; flex-shrink: 0;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-links {
+      display: flex; list-style: none; gap: var(--space-1);
+      align-items: center; flex-wrap: nowrap;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      display: block; text-decoration: none;
+      font-size: var(--text-xs); font-weight: 500; white-space: nowrap;
+      color: var(--color-text-muted);
+      padding: var(--space-2) var(--space-3); border-radius: var(--radius-md);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--color-primary); background: var(--color-primary-highlight);
+    }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
+    .theme-toggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: var(--radius-md);
+      color: var(--color-text-muted); border: 1px solid var(--color-border);
+    }
+    .theme-toggle:hover { background: var(--color-surface-offset); color: var(--color-text); }
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px; padding: var(--space-2);
+      border: 1px solid var(--color-border); border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+    }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+    .mobile-nav-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    .mobile-nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) var(--space-6);
+      box-shadow: var(--shadow-md); z-index: 199;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block; padding: var(--space-3) 0;
+      text-decoration: none; font-size: var(--text-sm);
+      color: var(--color-text-muted); font-weight: 500;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--color-primary); }
+
+    /* ── CONTAINER / LAYOUT ── */
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
+    .container-wide { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-6); }
+
+    /* ── PAGE SECTIONS ── */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrapper { padding-block: clamp(var(--space-10), 6vw, var(--space-20)); }
+    .section-wrapper + .section-wrapper { border-top: 1px solid var(--color-divider); }
+
+    /* ── HERO / LANDING ── */
+    .hero-grid {
+      display: grid; gap: var(--space-12);
+      grid-template-columns: 1fr;
+      padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    }
+    @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .hero-label {
+      display: inline-block; font-size: var(--text-xs); font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-primary); margin-bottom: var(--space-4);
+    }
+    .hero-title {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      font-weight: 400; line-height: 1.1; margin-bottom: var(--space-6);
+      color: var(--color-text);
+    }
+    .hero-title em { font-style: italic; color: var(--color-primary); }
+    .hero-body { font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: var(--space-6); max-width: 58ch; }
+    .hero-cta-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: var(--color-primary); color: var(--color-text-inverse);
+      padding: var(--space-3) var(--space-6); border-radius: var(--radius-md);
+      font-size: var(--text-sm); font-weight: 600; text-decoration: none;
+      cursor: pointer; border: none;
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-primary:active { background: var(--color-primary-active); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: transparent; color: var(--color-text);
+      padding: var(--space-3) var(--space-6); border-radius: var(--radius-md);
+      font-size: var(--text-sm); font-weight: 500; text-decoration: none;
+      border: 1px solid var(--color-border); cursor: pointer;
+    }
+    .btn-ghost:hover { background: var(--color-surface-offset); }
+
+    /* Mission card */
+    .mission-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+    }
+    .mission-card-tag {
+      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--color-primary);
+      display: block; margin-bottom: var(--space-4);
+    }
+    .mission-card-title {
+      font-family: var(--font-display); font-size: var(--text-xl);
+      font-weight: 400; margin-bottom: var(--space-4); line-height: 1.2;
+    }
+    .mission-card p { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-3); }
+    .mission-card p:last-child { margin-bottom: 0; }
+
+    /* Abstract section */
+    .abstract-section {
+      background: var(--color-primary);
+      padding: clamp(var(--space-12), 7vw, var(--space-20)) var(--space-6);
+    }
+    .abstract-inner {
+      max-width: var(--content-narrow); margin-inline: auto; color: var(--color-text-inverse);
+    }
+    .abstract-inner .section-label {
+      display: inline-block; font-size: var(--text-xs); font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: oklch(from var(--color-text-inverse) l c h / 0.7);
+      margin-bottom: var(--space-4);
+    }
+    .abstract-inner h2 {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      font-weight: 400; margin-bottom: var(--space-6); line-height: 1.1;
+    }
+    .abstract-inner p {
+      font-size: var(--text-base); line-height: 1.75;
+      color: oklch(from var(--color-text-inverse) l c h / 0.88);
+      margin-bottom: var(--space-4); max-width: 68ch;
+    }
+    .abstract-inner p:last-child { margin-bottom: 0; }
+    .abstract-inner strong { color: var(--color-text-inverse); font-weight: 600; }
+
+    /* Video embed */
+    .video-wrapper {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-6);
+    }
+    .video-placeholder {
+      aspect-ratio: 16/9; background: var(--color-surface-offset);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: var(--space-4); color: var(--color-text-muted);
+    }
+    .video-placeholder svg { color: var(--color-primary); opacity: 0.6; }
+    .video-placeholder p { font-size: var(--text-sm); text-align: center; max-width: 32ch; }
+    .video-caption {
+      padding: var(--space-4) var(--space-6); border-top: 1px solid var(--color-divider);
+      font-size: var(--text-xs); color: var(--color-text-muted);
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--color-primary); display: block; margin-bottom: var(--space-3);
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: var(--text-xl);
+      font-weight: 400; margin-bottom: var(--space-6); color: var(--color-text);
+    }
+    .prose-section p { font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: var(--space-4); line-height: 1.75; max-width: 70ch; }
+    .prose-section p strong { color: var(--color-text); font-weight: 600; }
+    .prose-section p em { color: var(--color-accent-warm); font-style: italic; }
+    .prose-section h3 { font-size: var(--text-lg); font-weight: 600; color: var(--color-text); margin-top: var(--space-8); margin-bottom: var(--space-3); }
+    .prose-section ul { margin: var(--space-4) 0 var(--space-4) var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); }
+    .prose-section ul li { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.65; max-width: 68ch; }
+    .prose-section ul li strong { color: var(--color-text); }
+
+    /* ── JOURNAL ENTRIES ── */
+    .entries-grid { display: grid; gap: var(--space-6); }
+    .entry-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .entry-card:hover { box-shadow: var(--shadow-md); }
+    .entry-header {
+      background: var(--color-surface-offset); padding: var(--space-5) var(--space-6);
+      display: flex; flex-direction: column; gap: var(--space-2);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .entry-badge {
+      display: inline-flex; align-items: center;
+      background: var(--color-primary); color: var(--color-text-inverse);
+      padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.05em;
+      width: fit-content;
+    }
+    .entry-card h3 { font-size: var(--text-lg); font-weight: 600; color: var(--color-text); }
+    .entry-date { font-size: var(--text-xs); color: var(--color-text-faint); }
+    .entry-body { padding: var(--space-6); }
+    .entry-body p { font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: var(--space-4); line-height: 1.75; max-width: 68ch; }
+    .entry-body p:last-child { margin-bottom: 0; }
+    .entry-body strong { color: var(--color-text); font-weight: 600; }
+    .entry-body em { color: var(--color-accent-warm); }
+    .entry-meta {
+      display: flex; flex-wrap: wrap; gap: var(--space-4);
+      margin-top: var(--space-5); padding-top: var(--space-5);
+      border-top: 1px solid var(--color-divider);
+      font-size: var(--text-xs); color: var(--color-text-faint);
+    }
+
+    /* ── DESIGN CONJECTURE MAP ── */
+    .conjecture-map {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-8); margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+    .conjecture-map-title { font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-6); color: var(--color-text); }
+    .map-flow {
+      display: grid; gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    .map-node {
+      background: var(--color-surface-offset); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-4);
+    }
+    .map-node-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-2); }
+    .map-node-content { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6; }
+    .conjecture-list { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-6); }
+    .conjecture-item {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-5) var(--space-6);
+      display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); align-items: start;
+    }
+    .conjecture-letter {
+      width: 32px; height: 32px; border-radius: var(--radius-md);
+      background: var(--color-primary); color: var(--color-text-inverse);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-sm); font-weight: 700; flex-shrink: 0;
+    }
+    .conjecture-item p { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; max-width: 60ch; margin: 0; }
+    .conjecture-item strong { color: var(--color-text); }
+
+    /* ── DESIGN STORY ── */
+    .design-story-intro {
+      background: var(--color-surface-offset); border-radius: var(--radius-xl);
+      padding: var(--space-6); margin-bottom: var(--space-8);
+      border: 1px solid var(--color-border); display: flex; gap: var(--space-4); align-items: start;
+    }
+    .design-story-intro p { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0; }
+    .design-story-intro strong { color: var(--color-text); }
+
+    /* ── RESOURCES TABLE ── */
+    .resource-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .resource-item {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5);
+      display: flex; flex-direction: column; gap: var(--space-1);
+    }
+    .resource-title { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+    .resource-detail { font-size: var(--text-xs); color: var(--color-text-muted); }
+    .resource-link { font-size: var(--text-xs); color: var(--color-primary); text-decoration: none; width: fit-content; }
+    .resource-link:hover { text-decoration: underline; }
+
+    /* ── TEMPLATE ── */
+    .template-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-8);
+    }
+    .template-note {
+      background: color-mix(in oklch, var(--color-primary) 8%, var(--color-surface));
+      border: 1px solid var(--color-primary-highlight); border-radius: var(--radius-md);
+      padding: var(--space-4); margin-bottom: var(--space-6);
+      font-size: var(--text-sm); color: var(--color-primary);
+    }
+    .template-step { margin-bottom: var(--space-4); }
+    .template-step-label { font-size: var(--text-sm); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
+    .template-step p { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0; max-width: 62ch; }
+
+    /* ── CALCULATORS ── */
+    .calc-tabs { display: flex; gap: var(--space-2); margin-bottom: var(--space-6); flex-wrap: wrap; }
+    .calc-tab {
+      padding: var(--space-2) var(--space-4); border-radius: var(--radius-md);
+      font-size: var(--text-sm); font-weight: 500; border: 1px solid var(--color-border);
+      color: var(--color-text-muted); background: var(--color-surface);
+      cursor: pointer;
+    }
+    .calc-tab.active, .calc-tab:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
+    .calc-panel { display: none; }
+    .calc-panel.active { display: block; }
+    .calc-form {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-8); max-width: 520px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5); }
+    .form-group label { font-size: var(--text-sm); font-weight: 500; color: var(--color-text); }
+    .form-group input {
+      padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+      border: 1px solid var(--color-border); background: var(--color-bg);
+      font-size: var(--text-base); color: var(--color-text);
+    }
+    .form-group input:focus { outline: 2px solid var(--color-primary); outline-offset: 1px; border-color: var(--color-primary); }
+    .calc-result {
+      margin-top: var(--space-5); padding: var(--space-4) var(--space-5);
+      background: color-mix(in oklch, var(--color-primary) 8%, var(--color-surface));
+      border-radius: var(--radius-md); border: 1px solid var(--color-primary-highlight);
+      font-size: var(--text-sm); color: var(--color-primary); font-weight: 500;
+      min-height: 44px; display: flex; align-items: center;
+    }
+
+    /* ── RESEARCH PLAN ── */
+    .research-grid { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .research-grid { grid-template-columns: repeat(2, 1fr); } }
+    .research-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-6);
+    }
+    .research-card-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-3); display: block; }
+    .research-card h3 { font-size: var(--text-base); font-weight: 600; color: var(--color-text); margin-bottom: var(--space-3); }
+    .research-card p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.7; max-width: 60ch; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--color-text); color: var(--color-text-inverse);
+      padding: var(--space-12) var(--space-6); margin-top: var(--space-16);
+    }
+    .footer-inner { max-width: var(--content-default); margin-inline: auto; }
+    .footer-logo { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 400; margin-bottom: var(--space-3); }
+    .footer-desc { font-size: var(--text-sm); color: oklch(from var(--color-text-inverse) l c h / 0.65); margin-bottom: var(--space-8); max-width: 50ch; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .footer-links a { font-size: var(--text-xs); color: oklch(from var(--color-text-inverse) l c h / 0.65); text-decoration: none; }
+    .footer-links a:hover { color: var(--color-text-inverse); }
+    .footer-copy { font-size: var(--text-xs); color: oklch(from var(--color-text-inverse) l c h / 0.4); border-top: 1px solid oklch(from var(--color-text-inverse) l c h / 0.12); padding-top: var(--space-6); }
+    .footer-copy a { color: oklch(from var(--color-primary) calc(l + 0.15) c h); text-decoration: none; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .site-nav { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .hero-cta-row { flex-direction: column; }
+      .btn-primary, .btn-ghost { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-eyebrow">
+        <span class="header-eyebrow-dot"></span>
+        Doctoral Design Portfolio · TAMU-CC
+      </div>
+      <h1>Learn <em>The Money</em></h1>
+      <p class="header-tagline">A human-centered financial literacy curriculum designed through Creative Confidence and design thinking methodology for teacher candidates and underserved communities.</p>
+      <div class="header-meta">
+        <span class="header-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Instructional Artifact Justification
+        </span>
+        <span class="header-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Spring 2026 · 10-Week Design Journey
+        </span>
+        <span class="header-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Based on Kelley &amp; Kelley (2013) Creative Confidence
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <!-- SVG Logo -->
+      <a href="#" class="nav-logo" onclick="showPage('landing'); return false;" aria-label="Learn The Money — home">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="var(--color-primary)" stroke-width="2"/>
+          <text x="14" y="19" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" fill="var(--color-primary)">$</text>
+        </svg>
+        <span>Learn The Money</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="nav-links" role="list" id="desktop-nav">
+        <li><a href="#" onclick="showPage('landing'); return false;" class="nav-link active" data-page="landing">Landing</a></li>
+        <li><a href="#" onclick="showPage('entries'); return false;" class="nav-link" data-page="entries">Journal Entries</a></li>
+        <li><a href="#" onclick="showPage('extended'); return false;" class="nav-link" data-page="extended">Extended Explanation</a></li>
+        <li><a href="#" onclick="showPage('conjectures'); return false;" class="nav-link" data-page="conjectures">Design Conjectures</a></li>
+        <li><a href="#" onclick="showPage('story'); return false;" class="nav-link" data-page="story">Design Story</a></li>
+        <li><a href="#" onclick="showPage('prototype'); return false;" class="nav-link" data-page="prototype">Presentation 2</a></li>
+        <li><a href="#" onclick="showPage('research'); return false;" class="nav-link" data-page="research">Research Plan</a></li>
+        <li><a href="#" onclick="showPage('template'); return false;" class="nav-link" data-page="template">Template</a></li>
+        <li><a href="#" onclick="showPage('resources'); return false;" class="nav-link" data-page="resources">Resources</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch color theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="mobile-menu container" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <a href="#" onclick="showPage('landing'); closeMobileMenu(); return false;">Landing</a>
+      <a href="#" onclick="showPage('entries'); closeMobileMenu(); return false;">Journal Entries</a>
+      <a href="#" onclick="showPage('extended'); closeMobileMenu(); return false;">Extended Explanation</a>
+      <a href="#" onclick="showPage('conjectures'); closeMobileMenu(); return false;">Design Conjectures</a>
+      <a href="#" onclick="showPage('story'); closeMobileMenu(); return false;">Design Story</a>
+      <a href="#" onclick="showPage('prototype'); closeMobileMenu(); return false;">Presentation 2</a>
+      <a href="#" onclick="showPage('research'); closeMobileMenu(); return false;">Research Plan</a>
+      <a href="#" onclick="showPage('template'); closeMobileMenu(); return false;">Template</a>
+      <a href="#" onclick="showPage('resources'); closeMobileMenu(); return false;">Resources</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════
+         PAGE: LANDING
+    ══════════════════════════════════════ -->
+    <div id="page-landing" class="page-section active">
+
+      <!-- Hero -->
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <span class="hero-label">Artifact Landing Page</span>
+            <h2 class="hero-title">Designing Financial Confidence<br><em>One Story at a Time</em></h2>
+            <p class="hero-body">Learn The Money is a human-centered financial literacy curriculum that transforms money education from rote content delivery into confidence-building, emotionally responsive learning — designed for teacher candidates, incarcerated women, and underserved adult learners.</p>
+            <div class="hero-cta-row">
+              <a href="https://learnthemoney.org" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit learnthemoney.org
+              </a>
+              <button class="btn-ghost" onclick="showPage('entries')">
+                Read Journal Entries
+              </button>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="mission-card">
+              <span class="mission-card-tag">Mission Statement</span>
+              <h3 class="mission-card-title">Equity-Centered Financial Education</h3>
+              <p>To equip educators and community facilitators with research-grounded, design-thinking tools that build financial self-efficacy, reduce money shame, and cultivate lasting confidence among learners who have historically been underserved by both education and financial systems.</p>
+              <p>Every person deserves the opportunity to develop a healthy relationship with money — not just information about it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abstract -->
+      <section class="abstract-section" aria-labelledby="abstract-heading">
+        <div class="abstract-inner">
+          <span class="section-label">Short Abstract</span>
+          <h2 id="abstract-heading">Project Overview</h2>
+          <p><strong>Learn The Money</strong> is a human-centered financial literacy curriculum designed through design thinking methodology for teacher candidates and underserved populations. By applying <em>Creative Confidence</em> principles from Kelley &amp; Kelley (2013), this project transforms financial education from rote knowledge transmission into confidence-building, context-aware learning experiences that address real learner needs — including money trauma, decision paralysis, and systemic barriers.</p>
+          <p>The curriculum centers authentic money narratives, low-stakes experimentation (Money Micro-Experiments), and collaborative facilitation that reduces shame and invites reflection. Rather than delivering content from a position of expert authority, it positions educators as co-designers who surface learners' existing knowledge and lived experience as the starting point for financial growth.</p>
+          <p><strong>The goal:</strong> Equip educators with research-informed tools to foster financial self-efficacy, epistemic agency, and sustained confidence in their students and communities — documented through this ten-week design journey that draws on design-based research, conjecture mapping, and Wilson's Four Pillars of instructional design.</p>
+        </div>
+      </section>
+
+      <!-- Video -->
+      <div class="container">
+        <div class="section-wrapper reveal">
+          <span class="section-label">Video Demonstration</span>
+          <h2 class="section-title">Artifact Walkthrough (~5–10 min)</h2>
+          <div class="video-wrapper">
+            <div class="video-placeholder">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <p>Embed or link your class presentation video here (5–10 minutes recommended). Paste the YouTube or Vimeo embed URL below, or replace this block with an &lt;iframe&gt; embed.</p>
+            </div>
+            <div class="video-caption">Demonstration video — showcases the prototype, key curriculum features, and intended learner experience.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-landing -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: JOURNAL ENTRIES
+    ══════════════════════════════════════ -->
+    <div id="page-entries" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Design Journal</span>
+          <h2 class="section-title">Ten-Week Learning Journey</h2>
+          <div class="entries-grid">
+
+            <!-- ENTRY 1 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 1</span>
+                <h3>FLIP: From Design Thinking to Creative Confidence</h3>
+                <div class="entry-date">Week 1 · January 26, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 1 — "FLIP: From Design Thinking to Creative Confidence."</p>
+                <p><strong>Key Concepts Learned:</strong> The Kelley brothers describe "FLIP" as the shift from seeing creativity as rare to seeing it as a learnable capacity. The chapter introduces the three-circle design thinking framework — <em>Feasibility, Viability, Desirability</em> — and uses the Doug Dietz MRI case to show how human-centered design can dramatically change experiences for vulnerable users.</p>
+                <p><strong>Application to Learn The Money:</strong> Traditional financial literacy often stays in feasibility (math, content) and viability (products) while ignoring desirability — the fears, hopes, and lived realities of learners. For Learn The Money, I need to flip my own practice so I start with empathy for teacher candidates and incarcerated women, then design content around their real contexts rather than abstract standards.</p>
+                <p><strong>Reflection:</strong> The growth-mindset lens helps me see "I'm bad with money" as a belief, not a fixed trait. If I expect creative confidence from my learners, I also have to model it by sharing in-progress work and inviting feedback instead of waiting until everything is polished.</p>
+                <p><strong>Next Steps:</strong> Conduct short empathy interviews with 3–5 teacher candidates to surface their money stories, anxieties, and prior experiences. These insights will guide my first round of prototype activities.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 1</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 2 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 2</span>
+                <h3>DARE: From Fear to Courage</h3>
+                <div class="entry-date">Week 2 · February 2, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 2 — "DARE: From Fear to Courage" in <em>Creative Confidence</em>.</p>
+                <p><strong>Key Concepts Learned:</strong> The authors reframe fear of failure as a normal part of creative work and highlight Bandura's guided-mastery research, showing how confidence grows through small, successful steps. Creative people do not fail less; they run more experiments and interpret each attempt as learning rather than personal judgment.</p>
+                <p><strong>Application to Learn The Money:</strong> Many learners carry money trauma and shame, which makes them fearful of public mistakes. I want to design low-stakes practice — tiny financial experiments like a one-week spending log or a $5 automated transfer — that allow learners to experience quick, concrete wins and start rewriting their internal stories about being "bad with money."</p>
+                <p><strong>Independent Connections:</strong> This chapter connects directly to Bandura's self-efficacy work and Dweck's growth mindset research. In a financial-literacy context, that means building structures that help learners see evidence of their own competence, not just hear explanations from an expert.</p>
+                <p><strong>Personal Reflection:</strong> I recognized my own perfectionism as a fear pattern — I delay curriculum prototypes because I want them to be publication-ready. DARE nudges me to treat each version of Learn The Money as a prototype and to make my "messy middle" visible rather than hiding it.</p>
+                <p><strong>Next Steps:</strong> Design one "safe-to-fail" role-play where teacher candidates practice a difficult money conversation, then debrief what felt empowering or uncomfortable. Ask each participant to name one small money-related risk they are now willing to take in their own life or teaching.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 2; Bandura (1997); Dweck (2006)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 3 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 3</span>
+                <h3>SPARK: From Blank Page to Insight</h3>
+                <div class="entry-date">Week 3 · February 10, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 3 — "SPARK: From Blank Page to Insight."</p>
+                <p><strong>Key Concepts Learned:</strong> The chapter emphasizes generating lots of ideas before evaluating them, reframing challenges with "How might we…?" questions, and using field observations and empathy interviews to uncover needs that data alone can't reveal. The Embrace Infant Warmer case demonstrates how reframing from "low-cost incubator" to "baby-warming solution for rural mothers" opened up an entirely new product direction.</p>
+                <p><strong>Application to Learn The Money:</strong> Instead of asking "How do I teach all the required money topics?", I'm reframing to "How might we create financial confidence through small, meaningful experiments?" This pushes me to observe real contexts — teacher-candidate classrooms, correctional-education settings — and design activities that fit those realities.</p>
+                <p><strong>Independent Connections:</strong> SPARK echoes design-thinking practices from the d.school and aligns with Lusardi's research showing that context and behavior matter as much as content knowledge. It also reminds me of lean-startup idea flow: the more ideas you surface, the more likely you are to find a high-leverage one.</p>
+                <p><strong>Personal Reflection:</strong> I saw how often I open a blank document and wait for the "perfect" curriculum idea instead of using prompts, constraints, or rough sketches to get started. Adopting a traveler's mindset — noticing friction points in everyday money experiences — gives me more raw material to design from.</p>
+                <p><strong>Next Steps:</strong> Conduct three empathy interviews with teacher candidates, focusing on moments when they felt stuck or successful with money. Turn their stories into at least five "How might we…?" questions and use those as seeds for new Learn The Money activities.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 3; Lusardi (2010); d.school resources</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 4 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 4</span>
+                <h3>LEAP: From Planning to Action</h3>
+                <div class="entry-date">Week 4 · February 16, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 4 — "LEAP: From Planning to Action" in <em>Creative Confidence</em>.</p>
+                <p><strong>Key Concepts Learned:</strong> This chapter describes the "knowing–doing gap," where teams talk about innovation but hesitate to test ideas in the real world. The Pulse news-app story illustrates how tight deadlines and constant user feedback pushed the founders to prototype quickly in a café rather than perfecting a long business plan. The authors argue that small, fast experiments are more valuable than detailed plans that never get implemented.</p>
+                <p><strong>Application to Learn The Money:</strong> I realized I've been treating parts of Learn The Money like a planning problem — collecting articles, frameworks, and citations without enough live testing. LEAP reframes my constraints (busy teacher candidates, limited class time, complex money trauma) as design fuel. Instead of waiting until a whole module is "ready," I can run tiny pilots: one 15-minute activity, a quick confidence check-in, or a single prototype handout tested with a small group.</p>
+                <p><strong>Independent Connections:</strong> LEAP connects to lean-startup ideas about minimum viable products and iterative learning. It also mirrors the gap in financial literacy where people already "know" they should budget or save but struggle to act — reinforcing Lusardi's findings that knowledge alone is insufficient; I need to design for realistic, doable money actions that fit learners' daily lives.</p>
+                <p><strong>Personal Reflection:</strong> I saw myself in the people who wait for the perfect moment or perfect plan before starting. My tendency to want polished, branded curricula before sharing is really a fear of visible failure. LEAP pushes me to measure progress by experiments run, not documents drafted.</p>
+                <p><strong>Next Steps:</strong> Prototype one "Money Micro-Experiment" activity that teacher candidates can run with peers or family — such as a three-day spending-awareness challenge. Collect quick feedback using two prompts ("What helped you feel more confident?" and "What would you change?") and use that data to refine the activity.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 4; Lusardi (2010)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 5 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 5</span>
+                <h3>SEEK: From Duty to Passion</h3>
+                <div class="entry-date">Week 5 · February 23, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 5 — "SEEK: From Duty to Passion" in <em>Creative Confidence</em>, with attention to how people notice and follow the kinds of work that energize them instead of staying trapped in obligation.</p>
+                <p><strong>Key Concepts Learned:</strong> The Kelley brothers describe SEEK as an ongoing practice of paying attention to curiosity, energy, and meaning — not a single dramatic leap into a dream job. They highlight strategies such as small experiments, side projects, and "going on a quest" inside your current role to discover work that feels more aligned with your values. Passion emerges through doing and iterating, not through waiting for perfect clarity in advance.</p>
+                <p><strong>Application to Learn The Money:</strong> SEEK pushes me to treat Learn The Money not just as a course assignment, but as a live question about what kind of teaching work I actually want more of. When I notice where I feel most alive — facilitating money stories, designing reflection prompts, or building psychologically safe activities — that data should shape how I prioritize the curriculum. Instead of filling every possible content gap, I want to lean into the parts of the project that genuinely energize me and my learners, like Money MicroExperiments that connect financial choices to values and purpose.</p>
+                <p><strong>Independent Connections:</strong> This chapter resonates with self-determination theory, especially the importance of autonomy, competence, and relatedness in sustaining motivation. It also connects to career-development ideas about "prototyping" possible selves through small tests rather than committing to one fixed identity. In a financial-literacy context, SEEK reframes budgeting and saving as tools for building a life that feels meaningful, not just as tasks you are supposed to do out of duty.</p>
+                <p><strong>Personal Reflection:</strong> I recognized how often I treat financial literacy as something I should work on because it is important and underserved, rather than noticing the parts of it that actually feel joyful or creatively engaging. When I am facilitating money stories or designing low-shame entry points, time goes by quickly; when I am tweaking dense content slides, it feels heavy. SEEK is a reminder that my own sense of duty can quietly crowd out passion if I am not paying attention.</p>
+                <p><strong>Next Steps:</strong> (1) Map which existing Learn The Money activities feel most aligned with passion — for me and for participants — and which feel more like obligation; (2) prototype one new "Money &amp; Meaning" reflection that explicitly asks learners to connect a financial decision to a value they care about; (3) add a brief check-in question to my sessions — "When did this feel most alive for you today?" — to gather data on where learners experience energy and engagement.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 5; Deci &amp; Ryan (2000)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 6 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 6</span>
+                <h3>TEAM: Creatively Confident Groups</h3>
+                <div class="entry-date">Week 6 · March 3, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 6 — "TEAM: Creatively Confident Groups" in <em>Creative Confidence</em>, with a focus on how teams create psychological safety, diverse idea flow, and shared ownership of prototypes.</p>
+                <p><strong>Key Concepts Learned:</strong> The Kelley brothers argue that creative work is almost always a team sport. Strong teams deliberately build <em>psychological safety</em> so people feel safe sharing half-baked ideas, they balance diverse perspectives instead of privileging a single "expert," and they create rituals — like rapid brainstorming or story-sharing — that keep ideas moving. Leaders act more like gardeners than heroes: their job is to create conditions where others can flourish, not to have all the answers.</p>
+                <p><strong>Application to Learn The Money:</strong> Learn The Money cannot depend on one charismatic facilitator; it needs teams of teacher candidates, community educators, and even learners who co-create experiences. That means building norms and structures that make money conversations feel safe in a group. For example, I can embed specific team rituals into the curriculum: a "no-shame" rule revisited every session, rounds where everyone shares one small experiment they tried, and rotating roles so quieter participants still have defined ways to contribute.</p>
+                <p><strong>Independent Connections:</strong> This chapter connects to Amy Edmondson's work on psychological safety and to research on professional learning communities in teacher education. In financial literacy, teams matter because learners are trying to change habits inside social systems — families, peer groups, workplaces. If the team around them does not support new behaviors, confidence erodes quickly.</p>
+                <p><strong>Personal Reflection:</strong> I often treat curriculum design as a solo project, then later ask for "feedback" when most major decisions are already locked in. TEAM pushes me to involve others much earlier — inviting teacher candidates, correctional educators, and formerly incarcerated women to react to rough ideas, not just polished lesson plans.</p>
+                <p><strong>Next Steps:</strong> Pilot a small "design council" for Learn The Money: a group of 3–5 people — including at least one teacher candidate and one community educator — who meet briefly to react to new Money Micro-Experiments. Test practices like starting with appreciations and capturing all suggestions visually before evaluating any of them.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 6; Edmondson (1999)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 7 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 7</span>
+                <h3>MOVE: Creative Confidence to Go</h3>
+                <div class="entry-date">Week 7 · March 10, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Chapter 7 — "MOVE: Creative Confidence to Go" in <em>Creative Confidence</em>, which focuses on sustaining creative momentum beyond a single project or class and integrating design habits into everyday life.</p>
+                <p><strong>Key Concepts Learned:</strong> MOVE emphasizes that creative confidence is a practice, not a one-time achievement. The authors describe small, repeatable habits — capturing ideas, regularly reframing problems, and running quick experiments — that keep people in motion instead of sliding back into inertia. Storytelling and reflection help solidify these changes.</p>
+                <p><strong>Application to Learn The Money:</strong> For learners in Learn The Money, the real test comes after the workshop ends. MOVE pushes me to design "creative confidence to go" elements into the curriculum: simple Money Micro-Experiments learners can continue on their own, reflection prompts they can reuse, and check-in routines they can adapt with their students.</p>
+                <p><strong>Independent Connections:</strong> This chapter resonates with habit-formation research and self-regulated learning frameworks. Both suggest that small, consistent actions beat rare, intense efforts. In financial literacy, this aligns with automatic savings, weekly money dates, or debt snowballs — structures that make follow-through easier than avoidance.</p>
+                <p><strong>Personal Reflection:</strong> My own work on Learn The Money has come in bursts around deadlines. MOVE challenged me to define what a sustainable creative practice looks like: short, scheduled blocks each week to document one insight, update one activity, or run one conversation.</p>
+                <p><strong>Next Steps:</strong> Design a one-page "Creative Confidence To Go" handout for Learn The Money participants with three tiny Money Micro-Experiments, three reflection questions, and a simple plan for a monthly 20-minute money check-in.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013), Ch. 7; Clear (2018)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 8 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 8</span>
+                <h3>Integration: Design Thinking in Financial Literacy</h3>
+                <div class="entry-date">Week 8 · March 17, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> Cross-chapter synthesis of <em>Creative Confidence</em> and course readings on design-based research, conjecture mapping, and logic models, with an eye toward integrating these ideas into the Learn The Money design journal and curriculum.</p>
+                <p><strong>Key Concepts Learned:</strong> Across the book, the Kelley brothers frame creative confidence as a practice grounded in empathy, rapid experimentation, and collaborative teams. The design-based research literature — especially Sandoval's conjecture mapping and Wilson's Four Pillars of instructional design — adds a second layer: every learning environment already embodies a theory of how learning happens. Making those conjectures explicit through maps and logic models turns design work into something testable and improvable instead of a collection of isolated activities.</p>
+                <p><strong>Application to Learn The Money:</strong> For Learn The Money, this means treating the entire curriculum and this public journal as an evolving design conjecture. Each Money Micro-Experiment, each narrative activity, and each facilitation move is not just a "lesson idea," but part of a larger hypothesis about how financial confidence develops for teacher candidates and underserved adults.</p>
+                <p><strong>Independent Connections:</strong> Sandoval's claim that learning environments "intrinsically embody hypotheses" matches what I'm seeing in practice: when a Learn The Money session works, it is usually because the discursive practices and participant structures matched the problem we were trying to solve. Wilson's Four Pillars remind me that I cannot focus only on cognition; the curriculum has to attend to context, value and power, and aesthetic experience.</p>
+                <p><strong>Personal Reflection:</strong> Writing this integration entry forced me to zoom out from individual chapters and ask, "What theory of change is my curriculum assuming?" I realized I have been holding a high-level conjecture in my head — that authentic, emotionally honest money conversations plus tiny experiments will build confidence — but had not fully articulated the mechanisms or evidence.</p>
+                <p><strong>Next Steps:</strong> Use the design conjecture map and logic model as living tools for Learn The Money: tag future journal entries with the design elements they are testing, collect simple artifacts aligned with my mediating processes, and revisit the map at the end of the term to revise my high-level conjecture based on what actually happened in classrooms and workshops.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013); Sandoval (2014); Wilson (2005)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 9 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 9</span>
+                <h3>Prototype &amp; Iterate: Testing Creative Approaches</h3>
+                <div class="entry-date">Week 9 · March 24, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> This week's work focused on prototype testing and iteration across the <em>Creative Confidence</em> framework, especially the shift from generating promising ideas to testing them in real educational contexts. I also connected this phase to my design conjecture map and logic model so that each prototype could be treated as a test of a larger learning hypothesis.</p>
+                <p><strong>Key Concepts Learned:</strong> Prototyping is not just about making an activity visible; it is about making assumptions visible. A prototype gives learners something concrete to respond to, which is often more useful than asking them abstract questions about what they might like. Iteration then becomes the disciplined practice of revising the design in response to what learners actually do, say, and produce, rather than defending the designer's original intention.</p>
+                <p><strong>Application to Learn The Money:</strong> In Learn The Money, this means I cannot judge a financial-literacy activity only by whether the instructions are clear or the content is accurate. I need to test whether the activity actually lowers shame, invites reflection, and helps learners make more confident decisions about money. For example, a Money Micro-Experiment may look strong on paper, but if learners experience it as too personal, too abstract, or too time-consuming, then the design needs revision. The prototype is successful only if it works in the emotional and social reality of the learners, not just in my planning document.</p>
+                <p><strong>Independent Connections:</strong> This week helped me see a stronger link between classroom prototyping and design-based research. In the conjecture map, the prototype is part of the embodiment of design, while learner conversations, revised worksheets, and reflection responses become evidence of mediating processes. That means when I test a money-story prompt, peer-discussion protocol, or spending-awareness challenge, I am gathering evidence about whether my broader conjecture is working.</p>
+                <p><strong>Personal Reflection:</strong> I noticed that I still have a tendency to become attached to activities I spent a long time designing. When feedback suggests that something is confusing or emotionally heavy, my first instinct is to explain the activity better rather than rethink it. This entry reminded me that iteration requires humility. If learners misread or resist a prototype, that is not a failure of the learner; it is valuable information about the design.</p>
+                <p><strong>Next Steps:</strong> Test at least one Learn The Money prototype with a small group and document three kinds of evidence: what learners say, what they produce, and what they avoid. Then revise the activity using those findings and note which part of the conjecture map the revision is addressing — tools and materials, task structure, participant structure, or discursive practice.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013); Sandoval (2014); Wilson (2005)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- ENTRY 10 -->
+            <article class="entry-card reveal">
+              <div class="entry-header">
+                <span class="entry-badge">Entry 10</span>
+                <h3>Creative Confidence in Action: Reflection &amp; Moving Forward</h3>
+                <div class="entry-date">Week 10 · April 7, 2026</div>
+              </div>
+              <div class="entry-body">
+                <p><strong>Reading Focus:</strong> This week I revisited the full arc of <em>Creative Confidence</em> alongside my own nine prior entries, treating the book and the Learn The Money artifact as a single design story. Rather than focusing on a new chapter, I focused on how the core moves — FLIP, DARE, SPARK, LEAP, SEEK, TEAM, MOVE — and the design-based research and conjecture-mapping frameworks have actually shown up in my practice.</p>
+                <p><strong>Key Concepts Learned:</strong> Looking back, I see creative confidence less as a feeling and more as a set of repeatable behaviors: starting with empathy, running small experiments, inviting critique early, and using constraints as design fuel rather than excuses. The design-based research stance adds another layer: each activity, story prompt, or Money MicroExperiment is not just a lesson but a test of a larger conjecture about how financial confidence develops over time. What felt abstract in week one — ideas like mediating processes, discursive norms, or epistemic agency — now feels tied to specific facilitation moves and curriculum choices I can actually name.</p>
+                <p><strong>Application to Learn The Money:</strong> For Learn The Money, this ten-week journey has turned a loose collection of financial-literacy ideas into a more coherent design. The curriculum now has clearer throughlines: centering money stories and emotions, using low-stakes Money MicroExperiments to build self-efficacy, and designing group norms that reduce shame and invite reflection. The conjecture map and tentative research plan give me a scaffold for the next phase: instead of endlessly tweaking content, I can run concrete cycles (plan–prototype–observe–revise) with teacher candidates and community partners, collecting evidence about which design elements actually support confidence and transfer.</p>
+                <p><strong>Independent Connections:</strong> Synthesizing this work pushed me to connect creative confidence and Learn The Money to broader questions about justice and access in education. Financial literacy is not just about individual behavior; it is entangled with structural barriers, trauma, and power. That resonates with Wilson's emphasis on the political and aesthetic dimensions of design, and with research on trauma-informed pedagogy and critical financial education.</p>
+                <p><strong>Personal Reflection:</strong> When I started this journal, I quietly hoped to produce a polished "final curriculum." Instead, I am ending with something more honest: a living design that is better, clearer, and still incomplete. Across the entries, I can see my own shift from perfectionism toward experimentation — sharing messy drafts, narrating trade-offs, and being more explicit about my assumptions. I also notice a deeper change in identity: I do not just see myself as someone who teaches about money, but as a designer who can use research tools, empathy, and iteration to shape learning environments around difficult topics.</p>
+                <p><strong>Next Steps:</strong> Over the next six to twelve months: (1) pilot a small Learn The Money study using Qualtrics-based pre/post measures and simple qualitative artifacts outlined in my research plan; (2) refine the conjecture map based on real learner data, especially around shame, agency, and the impact of Money MicroExperiments; (3) invite a small "design council" of teacher candidates and community educators to co-interpret findings and co-design the next iteration.</p>
+                <div class="entry-meta">
+                  <span>📚 Kelley &amp; Kelley (2013); Sandoval (2014); Wilson (2005)</span>
+                  <span>⏱ Read time: ~5 min</span>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /entries-grid -->
+        </div>
+      </div>
+    </div><!-- /page-entries -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: EXTENDED EXPLANATION
+    ══════════════════════════════════════ -->
+    <div id="page-extended" class="page-section">
+      <div class="container">
+        <div class="section-wrapper prose-section">
+          <span class="section-label">Extended Explanation</span>
+          <h2 class="section-title">Artifact Overview &amp; Justification</h2>
+
+          <h3>What Is This Artifact?</h3>
+          <p>This web-based design journal documents the iterative development of <strong>Learn The Money</strong>, a human-centered financial literacy curriculum informed by design thinking and the framework in <em>Creative Confidence</em>. Across ten weeks, the site traces how ideas move from theory to prototype to implementation in ways that are transparent, research-grounded, and teachable to others.</p>
+
+          <h3>Target Audience</h3>
+          <p>The primary audience is <strong>teacher candidates and practicing educators</strong> who want to integrate financial literacy into their classrooms but feel underprepared or anxious about teaching money topics. The journal offers them a concrete example of how an educator wrestles with ambiguity, fear, and institutional constraints while still moving a project forward.</p>
+          <p>A second audience is <strong>higher-education faculty and instructional designers</strong> in teacher preparation, adult education, or community-based programs; for them, the artifact serves as a live case study in applying design-thinking practices to a complex socio-emotional domain like money.</p>
+          <p>A third audience includes <strong>community partners and stakeholders</strong> connected to Learn The Money — correctional education programs, nonprofits, funders — who need a clear explanation of what makes this curriculum distinct from traditional budgeting workshops. Finally, the journal also contributes to a broader professional portfolio by demonstrating a coherent research-to-practice trajectory.</p>
+
+          <h3>The Problem or Opportunity</h3>
+          <p>The artifact responds to two overlapping gaps. On the <strong>learner side</strong>, there is a persistent "knowing–doing gap" in financial literacy: adults can often explain concepts like budgeting or compound interest but still feel stuck, ashamed, or helpless about their own money decisions. Traditional programs emphasize content coverage and quizzes while underestimating money trauma, shame, and learned helplessness — especially among underserved populations such as incarcerated women or students from chronically under-resourced communities.</p>
+          <p>On the <strong>educator side</strong>, many preservice and in-service teachers care deeply about financial capability but lack curricular resources, pedagogical models, and personal confidence. Together, these gaps represent both a problem and an opportunity to design learning experiences that center confidence and context, not just information.</p>
+
+          <h3>How the Artifact Addresses the Need</h3>
+          <p>First, the design journal <strong>models a design-thinking stance</strong> applied to financial literacy. Each entry uses a consistent 15/5 format (reading focus, key concepts, application, independent connections, reflection, next steps), making visible how abstract ideas — guided mastery, growth mindset, rapid experimentation — are translated into specific changes in activities, facilitation, and assessment. Instead of presenting polished "final" lessons, the artifact normalizes iterative experimentation and safe-to-fail tests that educators can adapt in their own settings.</p>
+          <p>Second, the journal keeps <strong>learners at the center</strong> by continually foregrounding specific populations: teacher candidates, incarcerated women, college students, and community members carrying money trauma. Entries explicitly connect course concepts and research to concrete Learn The Money scenarios. This shows how human-centered design uncovers barriers that purely cognitive curricula miss — for example, fear of public disclosure around debt or a belief that being "bad with money" is a fixed identity rather than a changeable skill set.</p>
+          <p>Third, the artifact creates a <strong>transparent narrative of growth over time</strong>. By archiving early assumptions, evolving questions, and course corrections, it pushes back against perfectionism and highlights that meaningful curriculum emerges from many small leaps rather than a single breakthrough. Constraints such as limited class time, institutional expectations, and learners' life circumstances are treated as design prompts rather than excuses to maintain the status quo. For visitors, this narrative communicates that Learn The Money is not just another static workshop but an evolving, research-informed effort to build financial confidence and agency among people who have historically been underserved by both education and financial systems.</p>
+        </div>
+      </div>
+    </div><!-- /page-extended -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: DESIGN CONJECTURES
+    ══════════════════════════════════════ -->
+    <div id="page-conjectures" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Sandoval (2013/2014) Conjecture Mapping</span>
+          <h2 class="section-title">High-Level Design Conjectures</h2>
+
+          <div class="prose-section">
+            <p><strong>Why a conjecture map?</strong> Following Sandoval's conjecture-mapping framework, this project treats the Learn The Money curriculum as an explicit set of hypotheses about how financial-literacy learning happens for teacher candidates and underserved adults. Rather than treating sessions as disconnected activities, the conjecture map and logic model specify how design features are expected to work together to produce confidence, deeper understanding, and epistemic agency around money.</p>
+
+            <h3>High-Level Conjecture</h3>
+            <p>Learners develop deeper conceptual understanding, collaborative inquiry skills, and epistemic agency when the learning environment is designed around authentic, reflective practice that integrates <em>cognitive scaffolding</em> (Wilson's Pillar 1), <em>real-world contextual connections</em> (Pillar 2), <em>moral-value awareness</em> (Pillar 3), and <em>aesthetic experience</em> (Pillar 4), enacted through structured collaborative inquiry with iterative design and argumentation tasks.</p>
+          </div>
+
+          <!-- Conjecture Map Visual -->
+          <div class="conjecture-map reveal">
+            <div class="conjecture-map-title">Conjecture Map — Learn The Money</div>
+            <div class="map-flow">
+              <div class="map-node">
+                <div class="map-node-label">High-Level Conjecture</div>
+                <div class="map-node-content">Authentic, reflective financial practice across Wilson's Four Pillars builds confidence, epistemic agency, and lasting behavioral change.</div>
+              </div>
+              <div class="map-node">
+                <div class="map-node-label">Embodiments</div>
+                <div class="map-node-content">Money Micro-Experiments, money-story prompts, no-shame norms, peer-discussion protocols, conjecture-aligned tasks.</div>
+              </div>
+              <div class="map-node">
+                <div class="map-node-label">Mediating Processes</div>
+                <div class="map-node-content">Collaborative epistemic negotiation, metacognitive reflection, real-world connection making, sustained uptake of discursive norms.</div>
+              </div>
+              <div class="map-node">
+                <div class="map-node-label">Outcomes</div>
+                <div class="map-node-content">Financial self-efficacy, transferable epistemic agency, critical awareness of social/value dimensions, sustained motivation.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Embodiment details -->
+          <div class="prose-section">
+            <h3>Embodiment in Learn The Money</h3>
+            <p>In this project, the conjecture is embodied through four types of design elements:</p>
+            <ul>
+              <li><strong>Tools &amp; materials:</strong> collaborative digital tools, Money Micro-Experiment cards, money-story prompts, and authentic financial scenarios that make abstract concepts concrete and emotionally resonant.</li>
+              <li><strong>Task structures:</strong> iterative design tasks, epistemic reflection prompts, structured argumentation cycles, and peer-review protocols that push learners to revise ideas in response to evidence.</li>
+              <li><strong>Participant structures:</strong> small collaborative groups, teacher-as-facilitator, and distributed expertise roles that create communities of practice and shared ownership.</li>
+              <li><strong>Discursive practices:</strong> norms for evidence-based reasoning, justification, consensus-building dialogue, and narrative sharing that foreground issues of access, power, and voice.</li>
+            </ul>
+
+            <h3>Working Design Conjectures</h3>
+          </div>
+
+          <div class="conjecture-list">
+            <div class="conjecture-item reveal">
+              <div class="conjecture-letter">A</div>
+              <p><strong>If</strong> learners engage in iterative Money Micro-Experiments using authentic tools within small groups that share epistemic responsibility, <strong>then</strong> they will produce stronger evidence-based justifications and engage in more generative arguments about financial choices.</p>
+            </div>
+            <div class="conjecture-item reveal">
+              <div class="conjecture-letter">B</div>
+              <p><strong>If</strong> discursive norms for consensus-building, "no-shame" storytelling, and demands for justification are consistently enacted, <strong>then</strong> learners will internalize healthier epistemic standards for talking about money and apply them spontaneously beyond the course.</p>
+            </div>
+            <div class="conjecture-item reveal">
+              <div class="conjecture-letter">C</div>
+              <p><strong>If</strong> tasks are structured to connect explicitly to real-world contexts and roles — future teachers, returning citizens, caregivers — <strong>then</strong> learners will perceive financial literacy as relevant, increasing motivation and quality of knowledge application.</p>
+            </div>
+            <div class="conjecture-item reveal">
+              <div class="conjecture-letter">D</div>
+              <p><strong>If</strong> aesthetic dimensions — emotionally resonant narratives, clear visual design, and thoughtfully paced experiences — are deliberately designed, <strong>then</strong> learners will experience deeper, more memorable engagement that supports conceptual change and sustained confidence.</p>
+            </div>
+          </div>
+
+          <div class="prose-section">
+            <h3>Mediating Processes &amp; Outcomes</h3>
+            <p>These design conjectures focus attention on specific mediating processes: collaborative epistemic negotiation, metacognitive reflection on inquiry, real-world connection making, and sustained uptake of discursive norms. Observable artifacts — argumentation products, revised Money Micro-Experiments, reflection journals, and peer feedback — serve as proxies for whether the conjectures are playing out. The theoretical conjecture is that, if these mediating processes occur, they will lead to outcomes such as deeper conceptual understanding of money, transferable epistemic agency, critical awareness of social and value dimensions, and sustained motivation to engage with financial decisions.</p>
+
+            <h3>Logic-Model Alignment</h3>
+            <p>A complementary logic model translates this design theory into program-level planning and evaluation: inputs (facilitators, tools, time) support activities (collaborative inquiry labs, argumentation workshops, reflection sessions) that yield outputs (design iterations, argumentation products, attendance and journal counts). These outputs are expected to drive short-term outcomes (knowledge, skills, attitudes), intermediate outcomes (transfer of inquiry skills to new money contexts), and long-term impacts (ethical, aesthetically aware instructional design and lasting financial agency for learners).</p>
+
+            <h3>Using the Conjectures Going Forward</h3>
+            <p>Future iterations of Learn The Money will treat this conjecture map and logic model as living documents. As new data from classes and community settings come in, design conjectures will be revised, added, or discarded. The aim is not to freeze the curriculum, but to create a transparent, theoretically grounded trail showing how design decisions change in response to evidence and how those changes affect learners' financial confidence and epistemic agency.</p>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /page-conjectures -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: DESIGN STORY
+    ══════════════════════════════════════ -->
+    <div id="page-story" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Parrish (2006) Design Story</span>
+          <h2 class="section-title">First Day in Learn The Money</h2>
+
+          <div class="design-story-intro reveal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" aria-hidden="true" style="flex-shrink:0;margin-top:2px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p><strong>Perspective:</strong> A teacher candidate experiencing the Learn The Money curriculum for the first time. This design story is written in the first-person, present tense to immerse the reader in the learner experience (Parrish, 2006). Intended learning outcomes include financial self-reflection, reduced money shame, and recognition of money as a designable conversation — not just a content unit to survive.</p>
+          </div>
+
+          <div class="prose-section">
+            <p>I'm sitting in the back row, close enough to the door that I can leave if I need to. I tell myself I'm just here for the extra credit, but my stomach knows better. Any time someone says "financial literacy," my chest tightens. I've made too many mistakes with money to pretend this is neutral content.</p>
+
+            <p>The room feels different from what I expect. There's no big slide that says "Budgeting 101." Instead, the screen shows the words <em>Money Stories</em> and a simple prompt: <em>When did money first feel powerful in your life?</em> The facilitator — another grad student, not some distant expert — explains that today is about curiosity, not judgment. I'm not sure I believe them yet, but I notice that my shoulders drop a little.</p>
+
+            <p>We start with a quick anonymous poll on our phones: "On a scale of 1–5, how confident do you feel talking about money with your students or future students?" I tap 2 and feel a tiny wave of shame, imagining everyone else picking 4 or 5. The live results appear: most people are clustered around 2 and 3. I'm surprised, then relieved. I'm not the only one who feels underprepared.</p>
+
+            <p>Next, we listen to a short story about a learner named María, a first-generation college student trying to decide between paying down credit card debt and helping family with rent. As the story unfolds, I feel myself leaning forward. I recognize the tension between being responsible and being loyal, between numbers on a spreadsheet and people you love. The facilitator doesn't tell us what María "should" do. Instead, they ask, "What feelings do you think she's carrying into a classroom conversation about money?" I jot down: fear of judgment, pride, fatigue, and a quiet hope that someone might finally understand.</p>
+
+            <p>Then comes the part I dreaded: sharing. But the structure makes it feel safer. We work in pairs with a simple protocol from the Learn The Money site. One person answers three prompts — "My earliest money memory…," "One belief I was taught about money…," and "A time money felt out of control…" — while the other just listens and reflects back emotions, not advice. We're told to stay in the present tense: "I feel," "I notice," "I'm thinking," as if the memory is happening right now.</p>
+
+            <p>When it's my turn, I almost default to a joke, but my partner waits quietly. I hear myself say, "I'm eight years old, standing with my mom at the customer-service desk while she argues about an overdraft fee." As I describe the scene, I can feel the fluorescent lights, the crumpled receipt, my mom's voice tightening. I realize that a part of me still believes banks are like principals' offices — places you only go when you're in trouble.</p>
+
+            <p>My partner doesn't rush to fix it. She says, "I hear how small and responsible you feel at the same time." That sentence lands deeper than any financial tip I've heard in years. I notice that this activity isn't about budgeting yet; it's about making space for the emotions we drag into budgeting.</p>
+
+            <p>Later, we shift into designing. The facilitator introduces a Money Micro-Experiment card from the Learn The Money curriculum: a three-day spending-awareness challenge we can adapt for our own contexts. In small groups, we rewrite the instructions so they would make sense for different learners — ninth-graders, community-college students, or incarcerated women. We have to decide: What tone would feel respectful? What examples would feel real, not performative? We keep coming back to our own money stories as we argue about wording.</p>
+
+            <p>As we work, I notice a shift. I'm not just a student being taught about money; I'm a designer thinking about how money feels to other people. When someone suggests adding a "no shame" rule to the challenge, I feel a quiet click of recognition. If I'm this nervous in a graduate class, how must my future students feel?</p>
+
+            <p>We end with a brief reflection. On an index card, we answer two questions: "What is one belief about money you want to examine more closely?" and "What is one tiny experiment you're willing to try this week?" I write, "Belief: If I make a money mistake, it proves I'm irresponsible. Experiment: Spend 20 minutes looking at my bank app without judging myself — just noticing." It feels almost laughably small, but also strangely radical.</p>
+
+            <p>Walking out, I notice that my chest feels lighter. Nothing about my bank account has changed in ninety minutes, but something about the story I tell myself has. For the first time, I can imagine bringing money into my future classroom not as a unit to survive, but as a conversation to design — carefully, collaboratively, and without shame.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /page-story -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: PRESENTATION 2 / PROTOTYPE
+    ══════════════════════════════════════ -->
+    <div id="page-prototype" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Presentation 2</span>
+          <h2 class="section-title">Interactive Prototype — Financial Tools</h2>
+          <p style="font-size:var(--text-base);color:var(--color-text-muted);margin-bottom:var(--space-8);max-width:60ch;">These calculators demonstrate how Learn The Money integrates practical financial decision-making tools directly into the learning environment — bridging conceptual knowledge and real-world action.</p>
+
+          <div class="calc-tabs" role="tablist" aria-label="Calculator type">
+            <button class="calc-tab active" role="tab" aria-selected="true" aria-controls="panel-payment" onclick="switchCalc('payment', this)">Monthly Payment Calculator</button>
+            <button class="calc-tab" role="tab" aria-selected="false" aria-controls="panel-savings" onclick="switchCalc('savings', this)">Savings Goal Calculator</button>
+          </div>
+
+          <div id="panel-payment" class="calc-panel active" role="tabpanel" aria-labelledby="tab-payment">
+            <div class="calc-form">
+              <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-6);">Monthly Payment Calculator</h3>
+              <div class="form-group">
+                <label for="loanAmount">Loan Amount ($)</label>
+                <input type="number" id="loanAmount" placeholder="1000" min="0">
+              </div>
+              <div class="form-group">
+                <label for="interestRate">Annual Interest Rate (%)</label>
+                <input type="number" id="interestRate" placeholder="5" step="0.01" min="0">
+              </div>
+              <div class="form-group">
+                <label for="loanMonths">Number of Months</label>
+                <input type="number" id="loanMonths" placeholder="12" min="1">
+              </div>
+              <button class="btn-primary" onclick="calculatePayment()">Calculate Payment</button>
+              <div class="calc-result" id="paymentResult" aria-live="polite">Your estimated monthly payment will appear here.</div>
+            </div>
+          </div>
+
+          <div id="panel-savings" class="calc-panel" role="tabpanel" aria-labelledby="tab-savings">
+            <div class="calc-form">
+              <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-6);">Savings Goal Calculator</h3>
+              <div class="form-group">
+                <label for="savingsGoal">Savings Goal ($)</label>
+                <input type="number" id="savingsGoal" placeholder="5000" min="0">
+              </div>
+              <div class="form-group">
+                <label for="monthlyContribution">Monthly Contribution ($)</label>
+                <input type="number" id="monthlyContribution" placeholder="200" min="0">
+              </div>
+              <button class="btn-primary" onclick="calculateSavings()">Calculate Timeline</button>
+              <div class="calc-result" id="savingsResult" aria-live="polite">Your savings timeline will appear here.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /page-prototype -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: RESEARCH PLAN
+    ══════════════════════════════════════ -->
+    <div id="page-research" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Design-Based Research</span>
+          <h2 class="section-title">Tentative Research Plan: Learn The Money</h2>
+
+          <div class="prose-section" style="margin-bottom:var(--space-10);">
+            <p>This tentative research plan positions <em>Learn The Money</em> as a foundation for future design-based research, pilot testing, and possible dissertation or grant development. Rather than treating the current artifact as a finished product, this plan frames it as the most developed prototype to date — one that can support systematic data collection, iterative redesign, and deeper study of how financial-literacy learning environments build confidence, reflection, and agency among teacher candidates and community-based learners.</p>
+          </div>
+
+          <div class="research-grid">
+            <div class="research-card reveal">
+              <span class="research-card-label">Research Focus</span>
+              <h3>Overarching Purpose</h3>
+              <p>To examine how a human-centered financial literacy curriculum can support not only conceptual understanding of money topics, but also financial self-efficacy, willingness to engage in money conversations, and epistemic agency — in alignment with the project's conjecture map.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Guiding Research Questions</span>
+              <h3>Three Initial Questions</h3>
+              <p>(1) How does participation in <em>Learn The Money</em> influence learners' financial self-efficacy and confidence in discussing money-related topics? (2) Which features of the curriculum appear to support or constrain learner reflection, emotional safety, and real-world transfer? (3) How do iterative revisions — informed by learner data and conjecture mapping — improve the effectiveness of the intervention across cycles?</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Theoretical Framework</span>
+              <h3>Design-Based Research + Conjecture Mapping</h3>
+              <p>This study is grounded in design-based research and guided by conjecture mapping, drawing especially on the idea that learning environments embody hypotheses about how learning happens. The project also builds on Wilson's Four Pillars of instructional design by attending not only to cognition, but also to context, moral-value dimensions, and aesthetic experience.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Proposed Methodology</span>
+              <h3>Mixed-Methods, Multi-Cycle DBR</h3>
+              <p>The study will begin with a small pilot cycle involving teacher candidates or adult learners who participate in selected Learn The Money activities. A mixed-methods approach will be used: quantitative measures will provide evidence of change in confidence or self-efficacy, while qualitative data will help explain how participants experience the design. Findings will be used to revise activities across multiple DBR cycles.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Participants &amp; Data Sources</span>
+              <h3>Teacher Candidates &amp; Adult Learners</h3>
+              <p>The initial participant pool will include teacher candidates, graduate students, or community-based adult learners. Possible data sources include pre/post surveys, short reflective journal responses, observational notes, learner artifacts, facilitator memos, and feedback on prototype activities. Later phases could extend to community workshops or additional underserved populations.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Qualtrics Integration</span>
+              <h3>Research Infrastructure</h3>
+              <p>TAMU-CC's Qualtrics account offers practical infrastructure for this work: pre/post surveys, confidence check-ins, reflection prompts, and learner feedback forms using branching logic, display logic, and downloadable data exports. In the context of Learn The Money, Qualtrics supports a simple workflow: pre-assessment before participation, brief embedded feedback after prototype activities, and post-assessment to document changes in confidence and perceived relevance.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Potential Measures</span>
+              <h3>Financial Self-Efficacy + Reflection</h3>
+              <p>A short financial self-efficacy instrument paired with custom reflection items related to money shame, classroom confidence, and action planning. These data will be triangulated with learner work samples and facilitator observations to identify both measurable trends and richer explanatory patterns — treating survey data as one layer of evidence inside a broader iterative design process.</p>
+            </div>
+            <div class="research-card reveal">
+              <span class="research-card-label">Anticipated Contribution</span>
+              <h3>Scholarly &amp; Practical Impact</h3>
+              <p>This project has the potential to contribute to instructional design and educational technology by showing how financial literacy can be designed as a confidence-building, context-aware, and emotionally responsive learning experience rather than only a content-delivery problem. By integrating Qualtrics-based pre/post assessment with DBR iterative cycles and conjecture mapping, the project models an accessible, low-cost research infrastructure for graduate student researchers studying community-facing educational interventions.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /page-research -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: ENTRY TEMPLATE
+    ══════════════════════════════════════ -->
+    <div id="page-template" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Journal Entry Format</span>
+          <h2 class="section-title">Entry Template (15/5 Format)</h2>
+          <div class="template-card reveal">
+            <div class="template-note">
+              <strong>15/5 Format Reminder:</strong> Each entry should take approximately 15 minutes to write and ~5 minutes to read. Focus on clarity, substance, and actionable insights.
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">1. Reading Focus</div>
+              <p>Identify the specific chapter and primary concepts from the week's reading (1–2 sentences).</p>
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">2. Key Concepts Learned</div>
+              <p>Synthesize 2–3 major themes, include definitions, and cite the authors.</p>
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">3. Application to My Project</div>
+              <p>Connect reading concepts to your financial-literacy curriculum work. Use "How might we…?" prompts to reframe challenges as opportunities.</p>
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">4. Independent Findings or Connections (optional)</div>
+              <p>Add LinkedIn Learning courses, articles, or resources with APA citations.</p>
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">5. Personal Reflection</div>
+              <p>What did this reading make you think about? How does it affirm or challenge your approach?</p>
+            </div>
+            <div class="template-step">
+              <div class="template-step-label">6. Next Steps or Questions</div>
+              <p>Identify concrete actions or questions you will carry into the next week.</p>
+            </div>
+            <div style="margin-top:var(--space-6);padding-top:var(--space-6);border-top:1px solid var(--color-divider);">
+              <p style="font-size:var(--text-sm);color:var(--color-text-muted);">📎 Citation Guide: Use <a href="https://www.citefast.com/?s=APA" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">Citefast (APA Citation Tool)</a> for additional sources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /page-template -->
+
+
+    <!-- ══════════════════════════════════════
+         PAGE: RESOURCES
+    ══════════════════════════════════════ -->
+    <div id="page-resources" class="page-section">
+      <div class="container">
+        <div class="section-wrapper">
+          <span class="section-label">Bibliography &amp; Links</span>
+          <h2 class="section-title">Resources &amp; References</h2>
+
+          <div class="prose-section" style="margin-bottom:var(--space-8);">
+            <h3>Primary Text</h3>
+          </div>
+          <div class="resource-list" style="margin-bottom:var(--space-8);">
+            <div class="resource-item reveal">
+              <div class="resource-title">Creative Confidence: Unleashing the Creative Potential Within Us All</div>
+              <div class="resource-detail">Kelley, D., &amp; Kelley, T. (2013). Crown Business.</div>
+            </div>
+          </div>
+
+          <div class="prose-section" style="margin-bottom:var(--space-6);">
+            <h3>Key Research References</h3>
+          </div>
+          <div class="resource-list" style="margin-bottom:var(--space-8);">
+            <div class="resource-item reveal">
+              <div class="resource-title">Mindset: The New Psychology of Success</div>
+              <div class="resource-detail">Dweck, C. S. (2006). Random House.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Self-Efficacy: The Exercise of Control</div>
+              <div class="resource-detail">Bandura, A. (1997). Freeman.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Conjecture Mapping: An Approach to Systematic Educational Design Research</div>
+              <div class="resource-detail">Sandoval, W. (2014). <em>Journal of the Learning Sciences</em>, 23(1), 18–36.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Wilson's Four Pillars of Instructional Design</div>
+              <div class="resource-detail">Wilson, B. G. (2005). Referenced in this project's conjecture map and logic model.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Self-Determination Theory</div>
+              <div class="resource-detail">Deci, E. L., &amp; Ryan, R. M. (2000). <em>Psychological Inquiry</em>, 11(4), 227–268.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Psychological Safety Research</div>
+              <div class="resource-detail">Edmondson, A. (1999). Foundational work on psychological safety in team learning contexts.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Financial Literacy &amp; Capability Research</div>
+              <div class="resource-detail">Lusardi, A. (2010). Foundational work on financial literacy, capability, and behavior in underserved populations.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Atomic Habits</div>
+              <div class="resource-detail">Clear, J. (2018). Avery/Penguin Random House.</div>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Design Stories — Narrative &amp; Meaning in Instructional Design</div>
+              <div class="resource-detail">Parrish, P. E. (2006). <em>ETR&amp;D</em>, 54(6), 559–576. Theoretical basis for the Design Story section of this portfolio.</div>
+            </div>
+          </div>
+
+          <div class="prose-section" style="margin-bottom:var(--space-6);">
+            <h3>Related Initiatives &amp; Tools</h3>
+          </div>
+          <div class="resource-list">
+            <div class="resource-item reveal">
+              <div class="resource-title">Learn The Money Initiative</div>
+              <div class="resource-detail">Human-centered financial literacy curriculum — main project website.</div>
+              <a href="https://learnthemoney.org" target="_blank" rel="noopener noreferrer" class="resource-link">learnthemoney.org →</a>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Citefast APA Citation Tool</div>
+              <div class="resource-detail">Free online APA citation generator for academic references.</div>
+              <a href="https://www.citefast.com/?s=APA" target="_blank" rel="noopener noreferrer" class="resource-link">citefast.com →</a>
+            </div>
+            <div class="resource-item reveal">
+              <div class="resource-title">Stanford d.school Human-Centered Design Resources</div>
+              <div class="resource-detail">Foundational design thinking tools, methods, and frameworks used in this project.</div>
+              <a href="https://dschool.stanford.edu/resources" target="_blank" rel="noopener noreferrer" class="resource-link">dschool.stanford.edu →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /page-resources -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Learn The Money</div>
+      <p class="footer-desc">A doctoral instructional artifact portfolio documenting a human-centered financial literacy curriculum designed through Creative Confidence and design-based research methodology.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#" onclick="showPage('landing'); return false;">Landing</a>
+        <a href="#" onclick="showPage('entries'); return false;">Journal Entries</a>
+        <a href="#" onclick="showPage('extended'); return false;">Extended Explanation</a>
+        <a href="#" onclick="showPage('conjectures'); return false;">Design Conjectures</a>
+        <a href="#" onclick="showPage('story'); return false;">Design Story</a>
+        <a href="#" onclick="showPage('prototype'); return false;">Presentation 2</a>
+        <a href="#" onclick="showPage('research'); return false;">Research Plan</a>
+        <a href="https://learnthemoney.org" target="_blank" rel="noopener noreferrer">learnthemoney.org</a>
+      </nav>
+      <div class="footer-copy">
+        &copy; 2026 Learn The Money Design Journal &nbsp;&bull;&nbsp; Built with GitHub Pages &nbsp;&bull;&nbsp;
+        Kelley &amp; Kelley (2013) &middot; Sandoval (2014) &middot; Wilson (2005)
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── DARK MODE TOGGLE ──
+    (function(){
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      r.setAttribute('data-theme', d);
+      function setIcon(mode) {
+        if (!t) return;
+        t.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
+        t.innerHTML = mode === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      setIcon(d);
+      if (t) t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        setIcon(d);
+      });
+    })();
+
+    // ── PAGE ROUTING ──
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('.nav-link').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('data-page') === pageId);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(observeReveal, 50);
+    }
+
+    // ── MOBILE MENU ──
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.getElementById('site-nav');
+
+    hamburger && hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      nav.classList.toggle('mobile-nav-open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      nav.classList.remove('mobile-nav-open');
+      hamburger && hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target)) closeMobileMenu();
+    });
+
+    // ── SCROLL REVEAL ──
+    function observeReveal() {
+      const els = document.querySelectorAll('.reveal:not(.visible)');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      els.forEach(el => io.observe(el));
+    }
+    observeReveal();
+
+    // ── ACTIVE NAV ON SCROLL (landing page only) ──
+    // Using simple page-based routing, active state is handled by showPage()
+
+    // ── CALCULATOR TABS ──
+    function switchCalc(id, btn) {
+      document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.calc-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+
+    // ── PAYMENT CALCULATOR ──
+    function calculatePayment() {
+      const amount = parseFloat(document.getElementById('loanAmount').value);
+      const annualRate = parseFloat(document.getElementById('interestRate').value);
+      const months = parseInt(document.getElementById('loanMonths').value);
+      const result = document.getElementById('paymentResult');
+
+      if (isNaN(amount) || isNaN(annualRate) || isNaN(months) || amount <= 0 || months <= 0) {
+        result.textContent = 'Please enter valid positive numbers for all fields.';
+        return;
+      }
+
+      const monthlyRate = annualRate / 100 / 12;
+      let payment;
+      if (monthlyRate === 0) {
+        payment = amount / months;
+      } else {
+        payment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+      }
+      result.textContent = 'Estimated monthly payment: $' + payment.toFixed(2);
+    }
+
+    // ── SAVINGS CALCULATOR ──
+    function calculateSavings() {
+      const goal = parseFloat(document.getElementById('savingsGoal').value);
+      const contribution = parseFloat(document.getElementById('monthlyContribution').value);
+      const result = document.getElementById('savingsResult');
+
+      if (isNaN(goal) || isNaN(contribution) || goal <= 0 || contribution <= 0) {
+        result.textContent = 'Please enter valid positive numbers for both fields.';
+        return;
+      }
+
+      const months = Math.ceil(goal / contribution);
+      const years = Math.floor(months / 12);
+      const rem = months % 12;
+
+      if (years > 0) {
+        result.textContent = 'Estimated time to reach your goal: ' + years + ' year' + (years > 1 ? 's' : '') + (rem > 0 ? ' and ' + rem + ' month' + (rem > 1 ? 's' : '') : '') + '.';
+      } else {
+        result.textContent = 'Estimated time to reach your goal: ' + months + ' month' + (months > 1 ? 's' : '') + '.';
+      }
+    }
+  </script>
+</body>
+</html>
